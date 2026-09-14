@@ -5,6 +5,7 @@ import {
   loginUser,
   registerUser,
   requestRegistrationOTP,
+  updateProfile,
   verifyRegistrationOTP,
 } from "../controllers/authControllers.js";
 import { auth } from "../middleware/auth.js";
@@ -16,5 +17,6 @@ authRouter.post("/request-otp", requestRegistrationOTP);
 authRouter.post("/verify-otp", verifyRegistrationOTP);
 authRouter.post("/login", loginUser);
 authRouter.get("/me", auth, getMe);
+authRouter.put("/profile", auth, updateProfile);
 
 export default authRouter;
