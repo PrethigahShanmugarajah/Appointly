@@ -271,3 +271,68 @@ export const verifyRegistrationOTP = async (req, res) => {
     });
   }
 };
+
+/* -------- Login User -------- */
+export const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const normalizedEmailValue = normalizedEmail(email);
+
+    // if (!email || !password) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Email and password are required.",
+    //   });
+    // }
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required.",
+      });
+    }
+
+    if (!password) {
+      return res.status(400).json({
+        success: false,
+        message: "Password is required.",
+      });
+    }
+
+    const user = await findUserByEmail(normalizedEmailValue);
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "The email or password you entered is incorrect.",
+      });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "The email or password you entered is incorrect.",
+      });
+    }
+
+    const token = createToken(user._id);
+
+    return res.status(200).json({
+      success: true,
+      message: "Login successful.",
+      token,
+      user: toUserResponse(user),
+    });
+  } catch (error) {
+    console.error("Login User Error:", error?.stack || error?.message || error);
+
+    return res.status(500).json({
+      success: false,
+      message: "An unexpected error occurred while logging in.",
+      error: `Login User Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
