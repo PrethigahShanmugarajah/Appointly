@@ -6,6 +6,7 @@ import http from "http";
 import { port } from "./config/env.js";
 import connectDB from "./config/db.js";
 import authRouter from "./routes/authRoutes.js";
+import serviceRouter from "./routes/serviceRoutes.js";
 
 /* -------- INITIALIZE EXPRESS -------- */
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.json());
 /* -------- ROUTES -------- */
 app.get("/", (req, res) => res.send("API is Working!"));
 app.use("/api/auth", authRouter);
+app.use("/api/services", serviceRouter);
 
 /* -------- PORT -------- */
 const server = http.createServer(app);
