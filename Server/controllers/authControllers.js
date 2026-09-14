@@ -365,3 +365,61 @@ export const getMe = async (req, res) => {
     });
   }
 };
+
+/* -------- Update User -------- */
+export const updateProfile = async (req, res) => {
+  try {
+    const {
+      businessName,
+      businessDescription,
+      timezone,
+      brandTheme,
+      brandAccent,
+    } = req.body;
+
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found.",
+      });
+    }
+
+    if (businessName !== undefined) user.businessName = businessName;
+    if (businessDescription !== undefined)
+      user.businessDescription = businessDescription;
+    if (timezone !== undefined) user.timeZone = timezone;
+    if (brandTheme !== undefined) user.brandTheme = brandTheme;
+    if (brandAccent !== undefined) user.brandAccent = brandAccent;
+
+    const baseSlug = slugify(user.businessName || user.name) || "business";
+    let finalSlug = baseSlug;
+    let counter = 1;
+
+    while (await User.findOne({ slug: finalSlug, _id: { $ne: user._id } })) {
+      finalSlug = `${baseSlug}-${counter}`;
+      counter += 1;
+    }
+
+    user.slug = finalSlug;
+
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Profile updated successfully.",
+      user: toUserResponse(user),
+    });
+  } catch (error) {
+    console.error(
+      "Update User Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message: "An unexpected error occurred while updating your profile.",
+      error: `Update User Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
