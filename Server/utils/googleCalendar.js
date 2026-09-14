@@ -7,6 +7,8 @@ import {
   googleRedirectUri,
 } from "../config/env.js";
 
+
+
 /* -------- Get Google OAuth Client -------- */
 export const getOAuthClient = () => {
   return new google.auth.OAuth2(
@@ -14,6 +16,13 @@ export const getOAuthClient = () => {
     googleClientSecret,
     googleRedirectUri,
   );
+};
+
+/* -------- Get Google OAuth Tokens -------- */
+export const getGoogleTokens = async (code) => {
+  const oauth2Client = getOAuthClient();
+  const { tokens } = await oauth2Client.getToken(code);
+  return tokens;
 };
 
 /* -------- Generate Google OAuth Authorization URL -------- */
