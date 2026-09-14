@@ -1,8 +1,46 @@
 // Server / utils / emailOtp.js
 import bcrypt from "bcrypt";
-import { maxOtpAttempts } from "../config/env.js";
+import crypto from "crypto";
+import { maxOtpAttempts, otpTtlMinutes } from "../config/env.js";
 import EmailOtp from "../models/EmailOtp.js";
 import { normalizedEmail } from "./auth.js";
+import { sendOtpNotification } from "./bookingNotifications.js";
+
+/* -------- Generates a random six-digit OTP code. -------- */
+const createCode = () => crypto.randomInt(100000, 1000000).toString();
+
+/* -------- Creates, stores, and sends an email OTP for verification. -------- */
+export const requestEmailOtp = async ({ email, purpose }) => {
+  const normalizedEmailValue = normalizedEmail(email);
+  if (!normalizedEmailValue) {
+    throw new Error("Email is required.");
+  }
+
+  const code = createCode();
+  const codeHash = await bcrypt.hash(code, 10);
+  const expireAt = new Date(Date.now() + otpTtlMinutes * 60 * 1000);
+
+  await EmailOtp.deleteMany({
+    email: normalizedEmailValue,
+    purpose,
+    consumeAt: null,
+  });
+
+  await EmailOtp.create({
+    email: normalizedEmailValue,
+    purpose,
+    codeHash,
+    expireAt,
+  });
+
+  await sendOtpNotification({ email: normalizedEmailValue, code, purpose });
+
+  return {
+    sent: true,
+    email: normalizedEmailValue,
+    expiresInMinutes: otpTtlMinutes,
+  };
+};
 
 /* -------- Verifies an email OTP and optionally marks it as consumed. -------- */
 export const verifyEmailOtp = async ({
