@@ -1,10 +1,14 @@
 // Server / routes / integrationRoutes.js
 import express from "express";
-import { getGoogleConnectUrl } from "../controllers/integrationControllers.js";
+import {
+  getGoogleConnectUrl,
+  handleGoogleCallback,
+} from "../controllers/integrationControllers.js";
 import { auth } from "../middleware/auth.js";
 
 const integrationRouter = express.Router();
 
 integrationRouter.get("/google/connect", auth, getGoogleConnectUrl);
+integrationRouter.get("/google/callback", handleGoogleCallback);
 
 export default integrationRouter;
