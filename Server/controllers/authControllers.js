@@ -201,3 +201,73 @@ export const requestRegistrationOTP = async (req, res) => {
     });
   }
 };
+
+/* -------- Verify Registration OTP -------- */
+export const verifyRegistrationOTP = async (req, res) => {
+  try {
+    const { email, emailOtp } = req.body;
+
+    const normalizedEmailValue = normalizedEmail(email);
+
+    // if (!normalizedEmailValue || !emailOtp) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Email and OTP are required.",
+    //   });
+    // }
+
+    if (!normalizedEmailValue) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required.",
+      });
+    }
+
+    if (!emailOtp) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP is required.",
+      });
+    }
+
+    const existingUser = await findUserByEmail(normalizedEmailValue);
+
+    if (existingUser) {
+      return res.status(409).json({
+        success: false,
+        message: "An account with this email already exists.",
+      });
+    }
+
+    const otpResult = await verifyEmailOtp({
+      email: normalizedEmailValue,
+      purpose: "registration",
+      code: emailOtp,
+      consume: false,
+    });
+
+    if (!otpResult.verified) {
+      return res.status(400).json({
+        success: false,
+        message: otpResult.reason || "Invalid OTP.",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Registration OTP verified successfully.",
+    });
+  } catch (error) {
+    console.error(
+      "Verify Registration OTP Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while verifying the registration OTP.",
+      error: `Verify Registration OTP Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
