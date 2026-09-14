@@ -40,3 +40,5 @@ export const googleCalendarScope = process.env.GOOGLE_CALENDAR_SCOPE;
 export const clientUrl = process.env.CLIENT_URL;
 
 export const currency = process.env.CURRENCY;
+
+export const googleCalendarUrl = process.env.GOOGLE_CALENDAR_URL;
