@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { timeZone } from "../config/env.js";
 import User from "../models/User.js";
 import { slugify } from "../utils/slug.js";
-import { verifyEmailOtp } from "../utils/emailOtp.js";
+import { requestEmailOtp, verifyEmailOtp } from "../utils/emailOtp.js";
 import {
   createToken,
   findUserByEmail,
@@ -150,6 +150,54 @@ export const registerUser = async (req, res) => {
       success: false,
       message: "An unexpected error occurred while registering the user.",
       error: `Register User Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
+
+/* -------- Request Registration OTP -------- */
+export const requestRegistrationOTP = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    const normalizedEmailValue = normalizedEmail(email);
+
+    if (!normalizedEmailValue) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required.",
+      });
+    }
+
+    const existingUser = await findUserByEmail(normalizedEmailValue);
+
+    if (existingUser) {
+      return res.status(409).json({
+        success: false,
+        message: "An account with this email already exists.",
+      });
+    }
+
+    const result = await requestEmailOtp({
+      email: normalizedEmailValue,
+      purpose: "registration",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Registration OTP sent successfully.",
+      result,
+    });
+  } catch (error) {
+    console.error(
+      "Request Registration OTP Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while sending the registration OTP.",
+      error: `Request Registration OTP Error: ${error?.stack || error?.message || error}`,
     });
   }
 };
