@@ -39,3 +39,57 @@ export const listServices = async (req, res) => {
     });
   }
 };
+
+/* -------- Create Service -------- */
+export const createService = async (req, res) => {
+  try {
+    const { name, duration, price, description, icon } = req.body;
+
+    // if (!name || !duration) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Service name and duration are required.",
+    //   });
+    // }
+
+    if (!name) {
+      return res.status(400).json({
+        success: false,
+        message: "Service name is required.",
+      });
+    }
+
+    if (!duration) {
+      return res.status(400).json({
+        success: false,
+        message: "Service duration is required.",
+      });
+    }
+
+    const service = await Service.create({
+      userId: req.user.id,
+      name,
+      duration,
+      price: price || 0,
+      description: description || "",
+      icon: icon || "C1.png",
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Service created successfully.",
+      service,
+    });
+  } catch (error) {
+    console.error(
+      "Create Service Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message: "An unexpected error occurred while creating the service.",
+      error: `Create Service Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
