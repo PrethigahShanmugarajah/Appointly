@@ -144,3 +144,37 @@ export const updateService = async (req, res) => {
     });
   }
 };
+
+/* -------- Delete Service -------- */
+export const deleteService = async (req, res) => {
+  try {
+    const service = await Service.findOneAndUpdate(
+      { _id: req.params.id, userId: req.user.id, isDeleted: { $ne: true } },
+      { isDeleted: true, isActive: false },
+      { new: true },
+    );
+
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        message: "Service not found.",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Service deleted successfully.",
+    });
+  } catch (error) {
+    console.error(
+      "Delete Services Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message: "An unexpected error occurred while deleting the service.",
+      error: `Delete Services Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
