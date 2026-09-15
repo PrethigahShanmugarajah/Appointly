@@ -618,3 +618,50 @@ export const getBookingStatus = async (req, res) => {
     });
   }
 };
+
+/* -------- Cancel Public Booking Payment -------- */
+export const cancelPublicBookingPayment = async (req, res) => {
+  try {
+    const { booking_id: bookingId } = req.body;
+
+    if (!bookingId) {
+      return res.status(400).json({
+        success: false,
+        message: "Booking identifier is required",
+      });
+    }
+
+    const booking = await Booking.findOne({
+      _id: bookingId,
+      status: "pending_payment",
+    });
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "No pending booking found to cancel.",
+      });
+    }
+
+    booking.status = "payment_failed";
+    booking.paymentStatus = "failed";
+    await booking.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Payment was cancelled successfully.",
+    });
+  } catch (error) {
+    console.error(
+      "Cancel Public Booking Payment Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while cancelling the booking payment.",
+      error: `Cancel Public Booking Payment Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
