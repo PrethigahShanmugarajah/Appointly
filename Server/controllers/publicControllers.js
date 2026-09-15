@@ -16,6 +16,8 @@ import { createBookingCalendarEvent } from "../utils/googleCalendar.js";
 import { calculatePlatformSplit } from "../utils/money.js";
 import { timeOverlap } from "../utils/overlap.js";
 import { getStripe, toStripeAmount } from "../utils/stripe.js";
+import User from "../models/User.js";
+import { confirmPaidBooking } from "../services/bookingService.js";
 
 /* -------- Get Public Business -------- */
 export const getPublicBusiness = async (req, res) => {
@@ -503,6 +505,116 @@ export const createPublicBooking = async (req, res) => {
       success: false,
       message: "An unexpected error occurred while creating the booking.",
       error: `Create Public Booking Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
+
+/* -------- Get Booking Status -------- */
+export const getBookingStatus = async (req, res) => {
+  try {
+    const { session_id: sessionId, booking_id: bookingId } = req.query;
+    const query = sessionId
+      ? { stripeSessionId: sessionId }
+      : { _id: bookingId };
+
+    if (!sessionId && !bookingId) {
+      return res.status(400).json({
+        success: false,
+        message: "Booking identifier is required.",
+      });
+    }
+
+    let booking = await Booking.findOne(query).populate(
+      "serviceId",
+      "name duration price",
+    );
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: "Booking not found.",
+      });
+    }
+
+    if (sessionId && booking.status === "pending_payment") {
+      const stripe = getStripe();
+      if (!stripe) {
+        return res.status(503).json({
+          success: false,
+          message: "Stripe payments are not configured yet.",
+        });
+      }
+
+      const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+      if (session.metadata?.bookingId !== String(booking._id)) {
+        return res.status(400).json({
+          success: false,
+          message: "The payment session does not match this booking.",
+        });
+      }
+
+      if (session.payment_status !== "paid") {
+        booking.status = "payment_failed";
+        booking.paymentStatus = "failed";
+        await booking.save();
+        return res.status(402).json({
+          success: false,
+          message:
+            "Payment was not completed. The booking has been marked as payment failed.",
+          booking,
+        });
+      }
+
+      const [business, service] = await Promise.all([
+        User.findById(booking.userId),
+        Service.findById(booking.serviceId),
+      ]);
+
+      // if (!business || !service) {
+      //   return res.status(404).json({
+      //     success: false,
+      //     message:
+      //       "The business or service associated with this booking was not found.",
+      //   });
+      // }
+
+      if (!business) {
+        return res.status(404).json({
+          success: false,
+          message: "The business associated with this booking was not found.",
+        });
+      }
+
+      if (!service) {
+        return res.status(404).json({
+          success: false,
+          message: "The service associated with this booking was not found.",
+        });
+      }
+
+      await confirmPaidBooking({ booking, business, service, session });
+      booking = await Booking.findById(booking._id).populate(
+        "serviceId",
+        "name duration price",
+      );
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Booking status retrieved successfully.",
+      booking,
+    });
+  } catch (error) {
+    console.error(
+      "Get Booking Status Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while retrieving the booking status.",
+      error: `Get Booking Status Error: ${error?.stack || error?.message || error}`,
     });
   }
 };
