@@ -39,3 +39,32 @@ export const getWalletSummary = async (userId) => {
     available: Math.max(0, earned - held + reversed),
   };
 };
+
+/* -------- Create Booking Payout Transaction -------- */
+export const createBookingPayoutTransaction = async ({
+  booking,
+  description,
+}) => {
+  if (!booking?.providerPayoutAmount) return null;
+
+  try {
+    return await WalletTransaction.create({
+      userId: booking.userId,
+      bookingId: booking._id,
+      type: "booking_payout",
+      amount: booking.providerPayoutAmount,
+      currency: booking.currency,
+      status: "available",
+      description: description || "Booking payout after platform fee",
+    });
+  } catch (error) {
+    if (error.code === 11000) {
+      return WalletTransaction.findOne({
+        bookingId: booking._id,
+        type: "booking_payout",
+      });
+    }
+
+    throw error;
+  }
+};
