@@ -11,6 +11,7 @@ import availabilityRouter from "./routes/availabilityRoutes.js";
 import integrationRouter from "./routes/integrationRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
 import paymentRouter from "./routes/paymentRoutes.js";
+import publicRouter from "./routes/publicRoutes.js";
 
 /* -------- INITIALIZE EXPRESS -------- */
 const app = express();
@@ -30,6 +31,8 @@ app.use("/api/availability", availabilityRouter);
 app.use("/api/integrations", integrationRouter);
 app.use("/api/bookings", bookingRouter);
 app.use("/api/payments", paymentRouter);
+app.use("/api/public", publicRouter);
+app.use("/public", publicRouter);
 
 /* -------- PORT -------- */
 const server = http.createServer(app);
