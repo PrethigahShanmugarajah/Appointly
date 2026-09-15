@@ -48,3 +48,9 @@ export const adminEmail = process.env.ADMIN_EMAIL;
 export const adminPassword = process.env.ADMIN_PASSWORD;
 
 export const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
+
+export const currencyCode = process.env.CURRENCY_CODE;
+
+export const locale = process.env.LOCALE;
+
+export const platformFeeRate = Number(process.env.PLATFORM_FEE_RATE);
