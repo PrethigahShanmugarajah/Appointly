@@ -1,5 +1,6 @@
 // Server / utils / business.js
 import User from "../models/User.js";
+import { holdWindowStart } from "./time.js";
 
 /* -------- Get Business by Slug -------- */
 export const getBusinessBySlug = async (slug) => {
@@ -18,3 +19,15 @@ export const toPublicBusiness = (business) => ({
   timezone: business.timezone,
   googleCalendarConnected: business.googleCalendarConnected,
 });
+
+/* -------- Find Active Slot Bookings -------- */
+export const findActiveSlotBookings = ({ userId, date }) => {
+  return Booking.find({
+    userId,
+    date,
+    $or: [
+      { status: "confirmed" },
+      { status: "pending_payment", createdAt: { $gte: holdWindowStart() } },
+    ],
+  });
+};
