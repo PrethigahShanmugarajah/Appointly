@@ -1,6 +1,11 @@
 // Server / utils / calendarLink.js
 import { googleCalendarUrl } from "../config/env.js";
 
+/* -------- Convert Date and Time to Google Calendar Format -------- */
+export const toGoogleDateTime = (date, time) => {
+  return `${date.replaceAll("-", "")}T${time.replace(":", "")}00`;
+};
+
 /* -------- Build Google Calendar Event URL for Customer -------- */
 export const buildCustomerCalendarUrl = ({ business, service, booking }) => {
   const params = new URLSearchParams({
