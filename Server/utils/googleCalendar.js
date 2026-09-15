@@ -7,8 +7,6 @@ import {
   googleRedirectUri,
 } from "../config/env.js";
 
-
-
 /* -------- Get Google OAuth Client -------- */
 export const getOAuthClient = () => {
   return new google.auth.OAuth2(
@@ -35,4 +33,28 @@ export const getGoogleAuthUrl = (userId) => {
     scope: [googleCalendarScope],
     state: String(userId),
   });
+};
+
+/* -------- Cancel Booking Google Calendar Event -------- */
+export const cancelBookingCalendarEvent = async ({ business, booking }) => {
+  if (
+    !business.googleCalendarConnected ||
+    !business.googleRefreshToken ||
+    !booking.googleEventId
+  ) {
+    return false;
+  }
+
+  const oauth2Client = getOAuthClient();
+  oauth2Client.setCredentials({ refresh_token: business.googleRefreshToken });
+
+  const calendar = google.calendar({ version: "v3", auth: oauth2Client });
+  await calendar.events.patch({
+    calendarId: business.googleCalendarId || "primary",
+    eventId: booking.googleEventId,
+    resource: { status: "cancelled" },
+    sendUpdates: "all",
+  });
+
+  return true;
 };
