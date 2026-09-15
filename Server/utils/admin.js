@@ -27,3 +27,6 @@ export const isAdminPasswordValid = async (password) => {
 /* -------- Sum Rows By Key -------- */
 export const sumByKey = (rows) =>
   rows.reduce((acc, row) => ({ ...acc, [row._id]: row.total }), {});
+
+/* -------- Terminal Withdrawal Status -------- */
+export const terminalWithdrawalStatus = ["paid", "rejected"];
