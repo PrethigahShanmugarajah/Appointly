@@ -42,3 +42,9 @@ export const clientUrl = process.env.CLIENT_URL;
 export const currency = process.env.CURRENCY;
 
 export const googleCalendarUrl = process.env.GOOGLE_CALENDAR_URL;
+
+export const adminEmail = process.env.ADMIN_EMAIL;
+
+export const adminPassword = process.env.ADMIN_PASSWORD;
+
+export const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
