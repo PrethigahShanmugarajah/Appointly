@@ -100,3 +100,67 @@ export const updatePayoutDetails = async (req, res) => {
     });
   }
 };
+
+/* -------- Request Withdrawal -------- */
+export const requestWithdrawal = async (req, res) => {
+  try {
+    const userId = toObjectId(req.user.id);
+    const amount = Math.round(Number(req.body.amount || 0));
+    const user = await User.findById(userId).select("payoutDetails");
+
+    if (!user?.payoutDetails?.isComplete) {
+      return res.status(400).json({
+        success: false,
+        message: "Add payout details before requesting a withdrawal",
+      });
+    }
+
+    const summary = await getWalletSummary(userId);
+    if (!amount || amount < 100) {
+      return res.status(400).json({
+        success: false,
+        message: "Withdrawal amount must be at least 100 cents.",
+      });
+    }
+
+    if (amount > summary.available) {
+      return res.status(400).json({
+        success: false,
+        message: "Withdrawal amount exceeds available balance",
+      });
+    }
+
+    const withdrawal = await Withdrawal.create({
+      userId,
+      amount,
+      payoutSnapshot: user.payoutDetails,
+    });
+
+    await WalletTransaction.create({
+      userId,
+      withdrawalId: withdrawal._id,
+      type: "withdrawal_hold",
+      amount,
+      status: "pending",
+      description: "Withdrawal requested",
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Withdrawal request submitted successfully.",
+      withdrawal,
+    });
+  } catch (error) {
+    console.error(
+      "Request Withdrawal Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while processing the withdrawal request.",
+      error: `Request Withdrawal Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
