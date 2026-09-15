@@ -3,7 +3,7 @@ import Service from "../models/Service.js";
 import { normalizedEmail } from "../utils/auth.js";
 import { getBusinessBySlug, toPublicBusiness } from "../utils/business.js";
 import { generateSlots } from "../utils/slotGenerator.js";
-import { requestEmailOtp } from "../utils/emailOtp.js";
+import { requestEmailOtp, verifyEmailOtp } from "../utils/emailOtp.js";
 
 /* -------- Get Public Business -------- */
 export const getPublicBusiness = async (req, res) => {
@@ -159,6 +159,67 @@ export const requestPublicBookingOtp = async (req, res) => {
       message:
         "An unexpected error occurred while requesting the booking verification code.",
       error: `Request Public Booking OTP Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
+
+/* -------- Verify Public Booking OTP -------- */
+export const verifyPublicBookingOtp = async (req, res) => {
+  try {
+    const { customerEmail, emailOtp } = req.body;
+
+    // if (!customerEmail || !emailOtp) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Email and OTP are required.",
+    //   });
+    // }
+
+    const normalizedEmailValue = normalizedEmail(customerEmail);
+
+    if (!normalizedEmailValue) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required.",
+      });
+    }
+
+    if (!emailOtp) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP is required.",
+      });
+    }
+
+    const otpResult = await verifyEmailOtp({
+      email: normalizedEmailValue,
+      purpose: "booking",
+      code: emailOtp,
+      consume: false,
+    });
+
+    if (!otpResult.verified) {
+      return res.status(400).json({
+        success: false,
+        message: otpResult.reason || "OTP verification failed.",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Booking verification code verified successfully.",
+    });
+  } catch (error) {
+    console.error(
+      "Verify Public Booking OTP Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while verifying the booking verification code.",
+      error: `Verify Public Booking OTP Error: ${error?.stack || error?.message || error}`,
     });
   }
 };
