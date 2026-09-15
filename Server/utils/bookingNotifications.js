@@ -5,8 +5,11 @@ import {
   brevoSenderEmail,
   brevoSenderName,
   brevoTransactionalEmailUrl,
+  currencyCode,
   emailFrom,
+  locale,
   otpTtlMinutes,
+  timeZone,
 } from "../config/env.js";
 
 /* -------- Escapes special HTML characters to safely display text in emails. -------- */
@@ -137,6 +140,15 @@ const parseEmailAddress = (value = "") => {
   return match?.[0] || "";
 };
 
+/* -------- Removes the email address and extra characters from a sender value. -------- */
+const stripEmailAddress = (value = "") => {
+  return value
+    .replace(/<[^>]+>/g, "")
+    .replace(parseEmailAddress(value), "")
+    .replace(/["']/g, "")
+    .trim();
+};
+
 /* -------- Returns the configured sender email address and sender name. -------- */
 const getSender = () => {
   const from = emailFrom || "";
@@ -189,6 +201,27 @@ const getReplyTo = (replyTo) => {
     email,
     name: replyTo.name || email,
   };
+};
+
+/* -------- Creates a useful error message from a Brevo email failure. -------- */
+const getBrevoErrorMessage = (statusCode, parsed) => {
+  const message =
+    parsed.message || `Brevo email failed with status ${statusCode}`;
+
+  const lowerMessage = String(message).toLowerCase();
+
+  if (
+    lowerMessage.includes("ip") &&
+    (lowerMessage.includes("unauthorized") ||
+      lowerMessage.includes("not authorized"))
+  ) {
+    return [
+      message,
+      "Brevo rejected this server IP. For production, use one platform Brevo API key on the backend and either disable Brevo authorized IP restrictions or whitelist the production server outbound IP once.",
+    ].join(" ");
+  }
+
+  return message;
 };
 
 /* -------- Sends a transactional email through the Brevo API. -------- */
@@ -287,6 +320,130 @@ export const sendOtpNotification = async ({ email, code, purpose }) => {
   });
 };
 
+/* -------- Formats an amount using the configured currency and locale. -------- */
+const formatMoney = (amount = 0) => {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currencyCode,
+  }).format(amount / 100);
+};
+
+/* -------- Formats the booking date and time using the configured timezone. -------- */
+const formatDateTime = (booking, timezone = timeZone) => {
+  const date = new Date(`${booking.date}T${booking.startTime}:00`);
+  const displayDate = new Intl.DateTimeFormat(locale, {
+    dateStyle: "full",
+    timeZone: timezone,
+  }).format(date);
+
+  return `${displayDate}, ${booking.startTime}-${booking.endTime}`;
+};
+
+/* -------- Builds the email subject based on the booking type and recipient. -------- */
+const buildSubject = (type, businessName, recipientType) => {
+  if (recipientType === "provider") {
+    if (type === "rescheduled") return `Booking rescheduled: ${businessName}`;
+    if (type === "cancelled") return `Booking cancelled: ${businessName}`;
+    if (type === "status") return `Booking status updated: ${businessName}`;
+    return `New booking received: ${businessName}`;
+  }
+
+  if (type === "rescheduled")
+    return `Your booking with ${businessName} was rescheduled`;
+  if (type === "cancelled")
+    return `Your booking with ${businessName} was cancelled`;
+  if (type === "status") return `Your booking with ${businessName} was updated`;
+  return `Your booking with ${businessName} is confirmed`;
+};
+
+/* -------- Builds the introductory message based on the booking type and recipient. -------- */
+const buildIntro = ({ type, serviceName, recipientType }) => {
+  if (recipientType === "provider") {
+    if (type === "rescheduled")
+      return `A ${serviceName} booking has been rescheduled.`;
+    if (type === "cancelled")
+      return `A ${serviceName} booking has been cancelled.`;
+    if (type === "status")
+      return `A ${serviceName} booking status was updated.`;
+    return `You received a new ${serviceName} booking.`;
+  }
+
+  if (type === "rescheduled")
+    return `Your ${serviceName} booking has been rescheduled.`;
+  if (type === "cancelled")
+    return `Your ${serviceName} booking has been cancelled.`;
+  if (type === "status") return `Your ${serviceName} booking was updated.`;
+  return `Your ${serviceName} booking is confirmed.`;
+};
+
+/* -------- Builds the subject, text, and HTML content for a booking notification. -------- */
+const buildBookingMessage = ({
+  business,
+  service,
+  booking,
+  type,
+  recipientType,
+}) => {
+  const businessName = business.businessName || business.name || "Appointly";
+  const serviceName = service.name || "appointment";
+  const appointmentTime = formatDateTime(booking, business.timezone);
+  const bookingStatus = String(booking.status || "").replace("_", " ");
+  const paymentStatus = String(booking.paymentStatus || "not_required").replace(
+    "_",
+    " ",
+  );
+  const amount = formatMoney(booking.amount || 0, booking.currency || "inr");
+  const intro = buildIntro({ type, serviceName, recipientType });
+  const subject = buildSubject(type, businessName, recipientType);
+  const title =
+    recipientType === "provider" ? "Booking update" : "Booking confirmation";
+
+  const rows = [
+    { label: "Business", value: businessName },
+    { label: "Service", value: serviceName },
+    { label: "Customer", value: booking.customerName },
+    { label: "Customer email", value: booking.customerEmail },
+    { label: "When", value: appointmentTime },
+    { label: "Status", value: bookingStatus },
+    { label: "Payment", value: paymentStatus },
+    { label: "Amount", value: amount },
+    { label: "Booking ID", value: String(booking._id || "") },
+  ];
+
+  const text = [
+    intro,
+    "",
+    ...rows.map((row) => `${row.label}: ${row.value}`),
+    booking.notes ? `Notes: ${booking.notes}` : "",
+    booking.customerCalendarUrl
+      ? `Calendar link: ${booking.customerCalendarUrl}`
+      : "",
+    "",
+    recipientType === "provider"
+      ? "This notification was sent by Appointly."
+      : `Thank you for booking with ${businessName}.`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const htmlContent = buildCompanyEmailHtml({
+    title,
+    eyebrow: businessName,
+    intro,
+    rows,
+    accent: business.brandAccent || "#7D57F5",
+    notes: booking.notes,
+    calendarUrl:
+      recipientType === "customer" ? booking.customerCalendarUrl : "",
+    footer:
+      recipientType === "provider"
+        ? "This notification was sent by Appointly because a customer booked through your booking page."
+        : `Thank you for booking with ${businessName}. Please keep this email for your records.`,
+  });
+
+  return { subject, text, htmlContent };
+};
+
 /* -------- Sends booking notifications to the customer and business provider. -------- */
 export const sendBookingNotification = async ({
   business,
@@ -342,3 +499,6 @@ export const sendBookingNotification = async ({
 
   return { sent: true, provider: "brevo", recipients: results };
 };
+
+/* -------- Exposes the Brevo transactional email sender. -------- */
+export const sendTransactionalEmail = sendWithBrevo;
