@@ -1,11 +1,17 @@
 // Server / controllers / adminControllers.js
 import { adminEmail, adminPassword, adminPasswordHash } from "../config/env.js";
-import { createAdminToken, isAdminPasswordValid } from "../utils/admin.js";
+import {
+  createAdminToken,
+  isAdminPasswordValid,
+  terminalWithdrawalStatus,
+} from "../utils/admin.js";
 import { normalizedEmail } from "../utils/auth.js";
 import Booking from "../models/Booking.js";
 import User from "../models/User.js";
 import Withdrawal from "../models/Withdrawal.js";
 import { getAdminSummary } from "../services/adminService.js";
+import mongoose from "mongoose";
+import WalletTransaction from "../models/WalletTransaction.js";
 
 /* -------- Admin Login -------- */
 export const loginAdmin = async (req, res) => {
@@ -135,6 +141,88 @@ export const getAdminDashboard = async (req, res) => {
       message:
         "An unexpected error occurred while retrieving the admin dashboard.",
       error: `Get Admin Dashboard Error: ${error?.stack || error?.message || error}`,
+    });
+  }
+};
+
+/* -------- Update Withdrawal Status -------- */
+export const updateWithdrawalStatus = async (req, res) => {
+  try {
+    const { status, adminNote } = req.body;
+    const allowedStatuses = ["pending", "processing", "paid", "rejected"];
+
+    if (!allowedStatuses.includes(status)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid withdrawal status.",
+      });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid withdrawal ID.",
+      });
+    }
+
+    const withdrawal = await Withdrawal.findById(req.params.id);
+    if (!withdrawal) {
+      return res.status(404).json({
+        success: false,
+        message: "Withdrawal not found.",
+      });
+    }
+
+    if (terminalWithdrawalStatus.includes(withdrawal.status)) {
+      return res.status(400).json({
+        success: false,
+        message: `Withdrawal is already ${withdrawal.status} and cannot be changed.`,
+      });
+    }
+
+    if (status === "rejected" && withdrawal.status !== "rejected") {
+      const existingReversal = await WalletTransaction.findOne({
+        withdrawalId: withdrawal._id,
+        type: "withdrawal_reversal",
+      });
+
+      if (!existingReversal) {
+        await WalletTransaction.create({
+          userId: withdrawal.userId,
+          withdrawalId: withdrawal._id,
+          type: "withdrawal_reversal",
+          amount: withdrawal.amount,
+          status: "reversed",
+          description: "Withdrawal rejected and funds returned",
+        });
+      }
+    }
+
+    withdrawal.status = status;
+    withdrawal.adminNote = adminNote || withdrawal.adminNote;
+    await withdrawal.save();
+    const [summary] = await Promise.all([
+      getAdminSummary(),
+      withdrawal.populate("userId", "name email businessName"),
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      message: `Withdrawal status updated to ${status}.`,
+      withdrawal,
+      summary,
+    });
+  } catch (error) {
+    console.error(
+      "Update Withdrawal Status Error:",
+      error?.stack || error?.message || error,
+    );
+
+    return res.status(500).json({
+      success: false,
+      message:
+        "An unexpected error occurred while updating the withdrawal status.",
+      error: `Update Withdrawal Status Error: ${error?.stack || error?.message || error}`,
     });
   }
 };
