@@ -23,3 +23,7 @@ export const isAdminPasswordValid = async (password) => {
 
   return password === adminPassword;
 };
+
+/* -------- Sum Rows By Key -------- */
+export const sumByKey = (rows) =>
+  rows.reduce((acc, row) => ({ ...acc, [row._id]: row.total }), {});
