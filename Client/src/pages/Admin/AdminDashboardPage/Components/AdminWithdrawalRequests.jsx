@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminWithdrawalRequests.jsx
+// Client / src / pages / Admin / AdminDashboardPage / Components  / AdminWithdrawalRequests.jsx
 import { CheckCircle, Clock, Landmark } from "lucide-react";
 import { formatMoney } from "../../utils/money";
 import {
