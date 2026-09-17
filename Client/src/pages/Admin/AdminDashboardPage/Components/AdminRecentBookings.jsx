@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminRecentBookings.jsx
+// Client / src / pages / Admin / AdminDashboardPage / Components  / AdminRecentBookings.jsx
 import { CheckCircle } from "lucide-react";
 import { formatMoney } from "../../utils/money";
 
