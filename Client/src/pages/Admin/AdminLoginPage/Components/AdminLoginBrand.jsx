@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminLoginBrand.jsx
+// Client / src / pages / Admin / AdminLoginPage / Components / AdminLoginBrand.jsx
 import { Logo } from "../../assets/assets";
 
 const AdminLoginBrand = () => {
