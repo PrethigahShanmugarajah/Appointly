@@ -1,6 +1,6 @@
 // Client / src / pages / Admin / AdminDashboardPage / Components  / AdminRecentBookings.jsx
 import { CheckCircle } from "lucide-react";
-import { formatMoney } from "../../utils/money";
+import { formatMoney } from "../../../../utils/money";
 
 const AdminRecentBookings = ({ recentBookings, CURRENCY }) => {
   return (

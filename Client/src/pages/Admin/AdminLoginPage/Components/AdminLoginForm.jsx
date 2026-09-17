@@ -1,6 +1,6 @@
 // Client / src / pages / Admin / AdminLoginPage / Components / AdminLoginForm.jsx
 import { Eye, EyeOff } from "lucide-react";
-import { InputField } from "../FormField/InputField";
+import { InputField } from "../../../../components/FormField/InputField";
 import { Oval } from "react-loader-spinner";
 
 const AdminLoginForm = ({
@@ -23,26 +23,6 @@ const AdminLoginForm = ({
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5">
         <div className="space-y-5">
-          {/* <div>
-            <label className="block text-[13px] font-bold text-slate-700 mb-2">
-              Email Address
-            </label>
-
-            <input
-              type="email"
-              value={form.email}
-              onChange={(event) =>
-                setForm((prev) => ({
-                  ...prev,
-                  email: event.target.value,
-                }))
-              }
-              className="w-full rounded-[14px] border border-slate-200 px-4 py-3.5 outline-none focus:ring-2 focus:ring-[#7D57F5] focus:border-transparent transition-shadow text-[14px] font-medium"
-              required
-              placeholder="admin@example.com"
-            />
-          </div> */}
-
           <InputField
             label="Email Address"
             name="email"
@@ -58,26 +38,6 @@ const AdminLoginForm = ({
             }
             required
           />
-
-          {/* <div>
-            <label className="block text-[13px] font-bold text-slate-700 mb-2">
-              Password
-            </label>
-
-            <input
-              type="password"
-              value={form.password}
-              onChange={(event) =>
-                setForm((prev) => ({
-                  ...prev,
-                  password: event.target.value,
-                }))
-              }
-              className="w-full rounded-[14px] border border-slate-200 px-4 py-3.5 outline-none focus:ring-2 focus:ring-[#7D57F5] focus:border-transparent transition-shadow text-[14px] font-medium"
-              placeholder="********"
-              required
-            />
-          </div> */}
 
           <InputField
             label="Password"

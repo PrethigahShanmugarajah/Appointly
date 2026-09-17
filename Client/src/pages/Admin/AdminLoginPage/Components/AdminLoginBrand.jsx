@@ -1,5 +1,5 @@
 // Client / src / pages / Admin / AdminLoginPage / Components / AdminLoginBrand.jsx
-import { Logo } from "../../assets/assets";
+import { Logo } from "../../../../assets/assets";
 
 const AdminLoginBrand = () => {
   return (

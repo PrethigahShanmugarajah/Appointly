@@ -1,6 +1,6 @@
 // Client / src / pages / Admin / AdminDashboardPage / Components  / AdminDashboardHeader.jsx
 import { Link } from "react-router-dom";
-import { Logo } from "../../assets/assets";
+import { Logo } from "../../../../assets/assets";
 
 const AdminDashboardHeader = ({ logout }) => {
   return (

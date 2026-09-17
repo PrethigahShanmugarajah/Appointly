@@ -1,11 +1,11 @@
 // Client / src / pages / Admin / AdminDashboardPage / Components  / AdminWithdrawalRequests.jsx
 import { CheckCircle, Clock, Landmark } from "lucide-react";
-import { formatMoney } from "../../utils/money";
+import { formatMoney } from "../../../../utils/money";
 import {
   formatStatusLabel,
   isTerminalWithdrawalStatus,
   withdrawalStatuses,
-} from "../../utils/adminDashboard";
+} from "../../../../utils/adminDashboard";
 
 const AdminWithdrawalRequests = ({
   withdrawals,
