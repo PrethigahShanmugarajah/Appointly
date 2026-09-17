@@ -14,15 +14,18 @@ button {
 
 .Toastify__toast {
   color: #000000 !important;
+  font-family: "Inria Serif", serif !important;
 }
 
 .Toastify__toast-body {
   color: #000000 !important;
+  font-family: "Inria Serif", serif !important;
 }
 
 .Toastify__close-button {
   color: #000000 !important;
   opacity: 1 !important;
+  font-family: "Inria Serif", serif !important;
 }
 
 .custom-brand-font {
