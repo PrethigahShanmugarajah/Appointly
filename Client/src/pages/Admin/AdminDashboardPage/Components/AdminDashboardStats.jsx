@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminDashboardStats.jsx
+// Client / src / pages / Admin / AdminDashboardPage / Components  / AdminDashboardStats.jsx
 
 const AdminDashboardStats = ({ statCards }) => {
   return (
