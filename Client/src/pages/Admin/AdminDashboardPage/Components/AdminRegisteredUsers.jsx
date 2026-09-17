@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminRegisteredUsers.jsx
+// Client / src / pages / Admin / AdminDashboardPage / Components  / AdminRegisteredUsers.jsx
 import { UserCheck } from "lucide-react";
 
 const AdminRegisteredUsers = ({ users, getPayoutStatusClass }) => {
