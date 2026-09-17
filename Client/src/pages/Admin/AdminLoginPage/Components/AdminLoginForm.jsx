@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminLoginForm.jsx
+// Client / src / pages / Admin / AdminLoginPage / Components / AdminLoginForm.jsx
 import { Eye, EyeOff } from "lucide-react";
 import { InputField } from "../FormField/InputField";
 import { Oval } from "react-loader-spinner";
