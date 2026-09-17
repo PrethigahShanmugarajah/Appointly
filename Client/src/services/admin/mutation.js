@@ -29,3 +29,33 @@ export const adminLogin = async (payload) => {
     throw error;
   }
 };
+
+/* -------- Update Withdrawal Status -------- */
+export const updateWithdrawalStatus = async (id, payload) => {
+  try {
+    const { data } = await adminClient.patch(
+      API_ROUTES.ADMIN.UPDATE_WITHDRAWAL(id),
+      payload,
+    );
+
+    console.log("Update Withdrawal Status API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Update Withdrawal Status Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Withdrawal status update with warning");
+      console.warn(
+        "Update Withdrawal Status Warning:",
+        data?.message || "Withdrawal status update with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Update Withdrawal Status Error:", error);
+
+    throw error;
+  }
+};
