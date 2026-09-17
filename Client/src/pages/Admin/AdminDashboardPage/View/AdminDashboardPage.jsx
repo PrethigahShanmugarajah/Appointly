@@ -1,6 +1,6 @@
-// Client / src / pages / Admin / AdminDashboardPage.jsx
+// Client / src / pages / Admin / AdminDashboardPage / View / AdminDashboardPage.jsx
 import { useEffect, useState } from "react";
-import { useAppContext } from "../../context/appContext";
+import { useAppContext } from "../../../../context/appContext";
 import {
   CheckCircle,
   CircleDollarSign,
@@ -11,18 +11,20 @@ import {
   Wallet,
   XOctagon,
 } from "lucide-react";
-import { formatMoney } from "../../utils/money";
+import { formatMoney } from "../../../../utils/money";
 import {
   formatStatusLabel,
   isTerminalWithdrawalStatus,
-} from "../../utils/adminDashboard";
-import { updateWithdrawalStatus } from "../../services/admin/mutation";
-import { getAdminDashboard } from "../../services/admin/fetch";
-import AdminDashboardHeader from "../../components/Admin/AdminDashboardHeader";
-import AdminDashboardStats from "../../components/Admin/AdminDashboardStats";
-import AdminRegisteredUsers from "../../components/Admin/AdminRegisteredUsers";
-import AdminWithdrawalRequests from "../../components/Admin/AdminWithdrawalRequests";
-import AdminRecentBookings from "../../components/Admin/AdminRecentBookings";
+} from "../../../../utils/adminDashboard";
+import AdminDashboardHeader from "../Components/AdminDashboardHeader";
+import AdminDashboardStats from "../Components/AdminDashboardStats";
+import AdminRegisteredUsers from "../Components/AdminRegisteredUsers";
+import AdminWithdrawalRequests from "../Components/AdminWithdrawalRequests";
+import AdminRecentBookings from "../Components/AdminRecentBookings";
+import {
+  changeAdminWithdrawalStatus,
+  fetchAdminDashboard,
+} from "../Services/AdminDashboardPageServices";
 
 const AdminDashboardPage = () => {
   const { navigate, CURRENCY } = useAppContext();
@@ -39,7 +41,7 @@ const AdminDashboardPage = () => {
 
     let isActive = true;
 
-    getAdminDashboard()
+    fetchAdminDashboard()
       .then(({ data }) => {
         if (isActive) {
           setDashboard(data);
@@ -75,7 +77,10 @@ const AdminDashboardPage = () => {
     setUpdatingWithdrawalId(withdrawal._id);
 
     try {
-      const { data } = await updateWithdrawalStatus(withdrawal._id, { status });
+      const { data } = await changeAdminWithdrawalStatus(
+        withdrawal._id,
+        status,
+      );
       setDashboard((prev) => {
         if (!prev) return prev;
 
