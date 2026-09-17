@@ -1,4 +1,4 @@
-// Client / src / components / Admin / AdminDashboardHeader.jsx
+// Client / src / pages / Admin / AdminDashboardPage / Components  / AdminDashboardHeader.jsx
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/assets";
 
