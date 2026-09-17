@@ -9,6 +9,7 @@
 
 button {
   cursor: pointer;
+  @apply rounded-md hover:rounded-full;
 }
 
 .Toastify__toast {
