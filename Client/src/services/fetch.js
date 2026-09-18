@@ -2,6 +2,7 @@
 import { toast } from "react-toastify";
 import { adminClient } from "../api/admin";
 import API_ROUTES from "../api/api_route";
+import { client } from "../api/client";
 
 /* -------- Fetch Admin Dashboard -------- */
 export const getAdminDashboard = async () => {
@@ -11,7 +12,7 @@ export const getAdminDashboard = async () => {
     console.log("Admin Dashboard API Response:", data);
 
     if (data?.success) {
-      toast.success(data?.message);
+      // toast.success(data?.message);
       console.log("Admin Dashboard Success:", data?.message);
     } else {
       toast.warn(data?.message || "Admin dashboard with warning");
@@ -25,6 +26,30 @@ export const getAdminDashboard = async () => {
   } catch (error) {
     toast.error(error?.response?.data?.message || error?.message);
     console.error("Admin Dashboard Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Fetch Current User -------- */
+export const getMe = async () => {
+  try {
+    const { data } = await client.get(API_ROUTES.AUTH.GET_ME);
+
+    console.log("Get Me API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Get Me Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Get current user with warning");
+      console.warn("Get Me Warning:", data?.message || "Get Me Warning");
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Get Me Error:", error);
 
     throw error;
   }
