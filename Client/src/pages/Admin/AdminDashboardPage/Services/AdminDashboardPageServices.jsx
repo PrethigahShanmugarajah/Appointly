@@ -1,6 +1,6 @@
 // Client / src / pages / Admin / AdminDashboardPage / Services / AdminDashboardPageServices.jsx
-import { updateWithdrawalStatus } from "../../../../services/admin/mutation";
-import { getAdminDashboard } from "../../../../services/admin/fetch";
+import { updateWithdrawalStatus } from "../../../../services/mutation";
+import { getAdminDashboard } from "../../../../services/fetch";
 
 export const fetchAdminDashboard = () => {
   return getAdminDashboard();
