@@ -23,6 +23,22 @@ import C6 from "./icons/C6.png";
 import C7 from "./icons/C7.png";
 import C8 from "./icons/C8.png";
 
+import A1 from "./avatars/A1.png";
+import A2 from "./avatars/A2.png";
+import A3 from "./avatars/A3.png";
+import A4 from "./avatars/A4.png";
+import A5 from "./avatars/A5.png";
+import A6 from "./avatars/A6.png";
+import A7 from "./avatars/A7.png";
+import A8 from "./avatars/A8.png";
+import A9 from "./avatars/A9.png";
+import A10 from "./avatars/A10.png";
+import A11 from "./avatars/A11.png";
+import A12 from "./avatars/A12.png";
+import A13 from "./avatars/A13.png";
+import A15 from "./avatars/A15.png";
+import A16 from "./avatars/A16.png";
+
 export {
   Logo,
   Prethigah,
@@ -44,4 +60,19 @@ export {
   C6,
   C7,
   C8,
+  A1,
+  A2,
+  A3,
+  A4,
+  A5,
+  A6,
+  A7,
+  A8,
+  A9,
+  A10,
+  A11,
+  A12,
+  A13,
+  A15,
+  A16,
 };
