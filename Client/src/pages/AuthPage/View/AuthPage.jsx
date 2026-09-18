@@ -124,75 +124,27 @@ const AuthPage = () => {
     }
   };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   setLoading(true);
-
-  //   try {
-  //     const payload = isRegister
-  //       ? form
-  //       : { email: form.email, password: form.password };
-
-  //     const { data } = await (isRegister
-  //       ? registerUser(payload)
-  //       : loginUser(payload));
-
-  //     if (data.token) {
-  //       localStorage.setItem("token", data.token);
-  //     }
-
-  //     navigate(redirectTo, { replace: true });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    console.log("========== AUTH SUBMIT ==========");
-    console.log("Mode:", isRegister ? "REGISTER" : "LOGIN");
-    console.log("Form:", form);
-
-    const payload = isRegister
-      ? form
-      : { email: form.email, password: form.password };
-
-    console.log("Payload:", payload);
 
     setLoading(true);
 
     try {
-      const response = await (isRegister
+      const payload = isRegister
+        ? form
+        : { email: form.email, password: form.password };
+
+      const { data } = await (isRegister
         ? registerUser(payload)
         : loginUser(payload));
 
-      console.log("API Response:", response);
-      console.log("Response type:", typeof response);
-
-      if (response?.token) {
-        console.log("Token found:", response.token);
-
-        localStorage.setItem("token", response.token);
-
-        console.log("Token stored:", localStorage.getItem("token"));
-      } else {
-        console.log("NO TOKEN FOUND");
+      if (data.token) {
+        localStorage.setItem("token", data.token);
       }
 
-      console.log("Redirecting to:", redirectTo);
-
       navigate(redirectTo, { replace: true });
-    } catch (error) {
-      console.error("========== AUTH ERROR ==========");
-      console.error("Error:", error);
-      console.error("Error message:", error?.message);
-      console.error("Error response:", error?.response);
-      console.error("Error response data:", error?.response?.data);
     } finally {
       setLoading(false);
-      console.log("Loading finished");
     }
   };
 
