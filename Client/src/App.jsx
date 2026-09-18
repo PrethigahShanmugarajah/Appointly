@@ -7,6 +7,8 @@ import AdminDashboardPage from "./pages/Admin/AdminDashboardPage/View/AdminDashb
 import AdminProtectedRoute from "./components/ProtectedRoute/AdminProtectedRoute";
 import { PublicOnlyRoute } from "./components/ProtectedRoute/PublicOnlyRoute";
 import AuthPage from "./pages/AuthPage/View/AuthPage";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import DashboardPage from "./pages/DashboardPage/View/DashboardPage";
 
 const App = () => {
   return (
@@ -31,6 +33,15 @@ const App = () => {
             <PublicOnlyRoute>
               <AuthPage />
             </PublicOnlyRoute>
+          }
+        />
+
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
           }
         />
       </Routes>
