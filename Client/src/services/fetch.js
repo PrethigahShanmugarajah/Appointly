@@ -1,7 +1,7 @@
-// Client / src / services / admin / fetch.js
+// Client / src / services / fetch.js
 import { toast } from "react-toastify";
-import { adminClient } from "../../api/admin";
-import API_ROUTES from "../../api/api_route";
+import { adminClient } from "../api/admin";
+import API_ROUTES from "../api/api_route";
 
 /* -------- Fetch Admin Dashboard -------- */
 export const getAdminDashboard = async () => {
