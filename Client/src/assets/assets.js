@@ -6,13 +6,10 @@ import Facebook from "./Facebook.png";
 import Gmail from "./Gmail.png";
 import Instagram from "./Instagram.png";
 import WhatsApp from "./WhatsApp.png";
+import Google_Calendar from "./Google_Calendar.png";
 
 import P1 from "./P1.png";
-import P2 from "./P2.png";
-import P3 from "./P3.png";
 import P5 from "./P5.png";
-import P6 from "./P6.png";
-import P7 from "./P7.png";
 
 import C1 from "./icons/C1.png";
 import C2 from "./icons/C2.png";
@@ -46,12 +43,9 @@ export {
   Gmail,
   Instagram,
   WhatsApp,
+  Google_Calendar,
   P1,
-  P2,
-  P3,
   P5,
-  P6,
-  P7,
   C1,
   C2,
   C3,
