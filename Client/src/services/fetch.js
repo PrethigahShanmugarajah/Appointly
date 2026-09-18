@@ -54,3 +54,78 @@ export const getMe = async () => {
     throw error;
   }
 };
+
+/* -------- Fetch Bookings -------- */
+export const listBookings = async (params = {}) => {
+  try {
+    const { data } = await client.get(API_ROUTES.BOOKING.BASE, { params });
+
+    console.log("Bookings API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Bookings Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Bookings with warning");
+      console.warn("Bookings Warning:", data?.message || "Bookings Warning");
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Bookings Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Fetch Payment Overview -------- */
+export const getPaymentOverview = async () => {
+  try {
+    const { data } = await client.get(API_ROUTES.PAYMENT.BASE);
+
+    console.log("Payment Overview API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Payment Overview Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Payment overview with warning");
+      console.warn(
+        "Payment Overview Warning:",
+        data?.message || "Payment Overview Warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Payment Overview Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Fetch Services -------- */
+export const listServices = async () => {
+  try {
+    const { data } = await client.get(API_ROUTES.SERVICE.BASE);
+
+    console.log("Services API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Services Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Services with warning");
+      console.warn("Services Warning:", data?.message || "Services Warning");
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Services Error:", error);
+
+    throw error;
+  }
+};
