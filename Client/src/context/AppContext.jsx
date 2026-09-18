@@ -15,6 +15,12 @@ export const AppProvider = ({ children }) => {
 
   const PORTFOLIO_URL = import.meta.env.VITE_PORTFOLIO_URL;
 
+  const WHATSAPP_URL = import.meta.env.VITE_WHATSAPP_URL;
+
+  const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL;
+
+  const FACEBOOK_SHARE_URL = import.meta.env.VITE_FACEBOOK_SHARE_URL;
+
   const value = {
     navigate,
     location,
@@ -22,6 +28,9 @@ export const AppProvider = ({ children }) => {
     VITE_LOCALE,
     PORTFOLIO_NAME,
     PORTFOLIO_URL,
+    WHATSAPP_URL,
+    INSTAGRAM_URL,
+    FACEBOOK_SHARE_URL,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
