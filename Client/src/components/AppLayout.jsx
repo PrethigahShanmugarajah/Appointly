@@ -195,35 +195,14 @@ const AppLayout = ({ children }) => {
 
           <div className="my-8 h-px w-full bg-slate-100" />
 
-          <div>
-            <div>
-              <span className="text-slate-400">
-                &copy; {new Date().getFullYear()} Appointly. All rights
-                reserved.
-              </span>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <span className="text-slate-400">
+              &copy; {new Date().getFullYear()} Appointly. All rights reserved.
+            </span>
 
-              <div className="flex items-center gap-3">
-                <Link
-                  to="/privacy"
-                  className="text-[12px] font-semibold text-slate-400 hover:text-[#7D57F5] transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-
-                <span className="text-slate-300">•</span>
-
-                <Link
-                  to="/terms"
-                  className="text-[12px] font-semibold text-slate-400 hover:text-[#7D57F5] transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </div>
-
+            <div className="flex items-center justify-center gap-6">
               <LegalLinks />
-            </div>
 
-            <div className="flex items-center justify-center mt-2 sm:mt-0">
               <a
                 href={PORTFOLIO_URL}
                 target="_blank"
