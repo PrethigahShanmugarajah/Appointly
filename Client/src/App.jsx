@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import AdminLoginPage from "./pages/Admin/AdminLoginPage/View/AdminLoginPage";
 import AdminDashboardPage from "./pages/Admin/AdminDashboardPage/View/AdminDashboardPage";
 import AdminProtectedRoute from "./components/ProtectedRoute/AdminProtectedRoute";
+import { PublicOnlyRoute } from "./components/ProtectedRoute/PublicOnlyRoute";
+import AuthPage from "./pages/AuthPage/View/AuthPage";
 
 const App = () => {
   return (
@@ -20,6 +22,15 @@ const App = () => {
             <AdminProtectedRoute>
               <AdminDashboardPage />
             </AdminProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <PublicOnlyRoute>
+              <AuthPage />
+            </PublicOnlyRoute>
           }
         />
       </Routes>
