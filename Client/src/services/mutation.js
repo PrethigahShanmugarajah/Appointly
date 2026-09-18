@@ -1,7 +1,7 @@
-// Client / src / services / admin / mutation.js
+// Client / src / services / mutation.js
 import { toast } from "react-toastify";
-import { adminClient } from "../../api/admin";
-import API_ROUTES from "../../api/api_route";
+import { adminClient } from "../api/admin";
+import API_ROUTES from "../api/api_route";
 
 /* -------- Admin Login -------- */
 export const adminLogin = async (payload) => {
