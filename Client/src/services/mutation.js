@@ -2,6 +2,7 @@
 import { toast } from "react-toastify";
 import { adminClient } from "../api/admin";
 import API_ROUTES from "../api/api_route";
+import { client } from "../api/client";
 
 /* -------- Admin Login -------- */
 export const adminLogin = async (payload) => {
@@ -55,6 +56,114 @@ export const updateWithdrawalStatus = async (id, payload) => {
   } catch (error) {
     toast.error(error?.response?.data?.message || error?.message);
     console.error("Update Withdrawal Status Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Verify Registration OTP -------- */
+export const verifyRegistrationOtp = async (payload) => {
+  try {
+    const { data } = await client.post(API_ROUTES.AUTH.VERIFY_OTP, payload);
+
+    console.log("Verify Registration OTP API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Verify Registration OTP Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "OTP verification with warning");
+      console.warn(
+        "Verify Registration OTP Warning:",
+        data?.message || "OTP verification with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Verify Registration OTP Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Request Registration OTP -------- */
+export const requestRegistrationOtp = async (email) => {
+  try {
+    const { data } = await client.post(API_ROUTES.AUTH.REQUEST_OTP, { email });
+
+    console.log("Request Registration OTP API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Request Registration OTP Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "OTP request with warning");
+      console.warn(
+        "Request Registration OTP Warning:",
+        data?.message || "OTP request with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Request Registration OTP Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Register User -------- */
+export const register = async (payload) => {
+  try {
+    const { data } = await client.post(API_ROUTES.AUTH.REGISTER, payload);
+
+    console.log("Register API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Register Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Registration with warning");
+      console.warn(
+        "Register Warning:",
+        data?.message || "Registration with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Register Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- User Login -------- */
+export const login = async (payload) => {
+  try {
+    const { data } = await client.post(API_ROUTES.AUTH.LOGIN, payload);
+
+    console.log("User Login API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("User Login Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "User login with warning");
+      console.warn(
+        "User Login Warning:",
+        data?.message || "User login with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("User Login Error:", error);
 
     throw error;
   }
