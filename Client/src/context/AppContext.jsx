@@ -11,7 +11,18 @@ export const AppProvider = ({ children }) => {
 
   const VITE_LOCALE = import.meta.env.VITE_LOCALE;
 
-  const value = { navigate, location, CURRENCY, VITE_LOCALE };
+  const PORTFOLIO_NAME = import.meta.env.VITE_PORTFOLIO_NAME;
+
+  const PORTFOLIO_URL = import.meta.env.VITE_PORTFOLIO_URL;
+
+  const value = {
+    navigate,
+    location,
+    CURRENCY,
+    VITE_LOCALE,
+    PORTFOLIO_NAME,
+    PORTFOLIO_URL,
+  };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
