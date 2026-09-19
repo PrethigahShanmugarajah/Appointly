@@ -21,6 +21,10 @@ export const AppProvider = ({ children }) => {
 
   const FACEBOOK_SHARE_URL = import.meta.env.VITE_FACEBOOK_SHARE_URL;
 
+  const TIME_ZONE = import.meta.env.VITE_TIME_ZONE;
+
+  const TIME_ZONES = import.meta.env.VITE_TIME_ZONES.split(",");
+
   const value = {
     navigate,
     location,
@@ -31,6 +35,8 @@ export const AppProvider = ({ children }) => {
     WHATSAPP_URL,
     INSTAGRAM_URL,
     FACEBOOK_SHARE_URL,
+    TIME_ZONE,
+    TIME_ZONES,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
