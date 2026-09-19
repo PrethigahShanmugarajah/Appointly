@@ -168,3 +168,30 @@ export const login = async (payload) => {
     throw error;
   }
 };
+
+/* -------- Update Profile -------- */
+export const updateProfile = async (payload) => {
+  try {
+    const { data } = await client.put(API_ROUTES.AUTH.UPDATE_PROFILE, payload);
+
+    console.log("Update Profile API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Update Profile Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Profile update with warning");
+      console.warn(
+        "Update Profile Warning:",
+        data?.message || "Profile update with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Update Profile Error:", error);
+
+    throw error;
+  }
+};
