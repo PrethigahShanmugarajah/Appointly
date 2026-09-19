@@ -129,3 +129,30 @@ export const listServices = async () => {
     throw error;
   }
 };
+
+/* -------- Fetch Google Connect URL -------- */
+export const getGoogleConnectUrl = async () => {
+  try {
+    const { data } = await client.get(API_ROUTES.INTEGRATION.GOOGLE_CONNECT);
+
+    console.log("Google Connect URL API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Google Connect URL Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Google Connect URL with warning");
+      console.warn(
+        "Google Connect URL Warning:",
+        data?.message || "Google Connect URL with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Google Connect URL Error:", error);
+
+    throw error;
+  }
+};
