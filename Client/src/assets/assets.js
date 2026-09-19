@@ -9,6 +9,7 @@ import WhatsApp from "./WhatsApp.png";
 import Google_Calendar from "./Google_Calendar.png";
 
 import P1 from "./P1.png";
+import P2 from "./P2.png";
 import P5 from "./P5.png";
 
 import C1 from "./icons/C1.png";
@@ -51,6 +52,7 @@ export {
   WhatsApp,
   Google_Calendar,
   P1,
+  P2,
   P5,
   C1,
   C2,
