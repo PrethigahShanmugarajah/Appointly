@@ -195,3 +195,62 @@ export const updateProfile = async (payload) => {
     throw error;
   }
 };
+
+/* -------- Reschedule Booking -------- */
+export const rescheduleBooking = async (id, payload) => {
+  try {
+    const { data } = await client.patch(
+      API_ROUTES.BOOKING.RESCHEDULE(id),
+      payload,
+    );
+
+    console.log("Reschedule Booking API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Reschedule Booking Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Booking reschedule with warning");
+      console.warn(
+        "Reschedule Booking Warning:",
+        data?.message || "Booking reschedule with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Reschedule Booking Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Update Booking Status -------- */
+export const updateBookingStatus = async (id, status) => {
+  try {
+    const { data } = await client.patch(API_ROUTES.BOOKING.UPDATE_STATUS(id), {
+      status,
+    });
+
+    console.log("Update Booking Status API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Update Booking Status Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Booking status update with warning");
+      console.warn(
+        "Update Booking Status Warning:",
+        data?.message || "Booking status update with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Update Booking Status Error:", error);
+
+    throw error;
+  }
+};
