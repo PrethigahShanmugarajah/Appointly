@@ -7,6 +7,7 @@ import Gmail from "./Gmail.png";
 import Instagram from "./Instagram.png";
 import WhatsApp from "./WhatsApp.png";
 import Google_Calendar from "./Google_Calendar.png";
+import Stripe from "./Stripe.png";
 
 import P1 from "./P1.png";
 import P2 from "./P2.png";
@@ -51,6 +52,7 @@ export {
   Instagram,
   WhatsApp,
   Google_Calendar,
+  Stripe,
   P1,
   P2,
   P5,
