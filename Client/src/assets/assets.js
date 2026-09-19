@@ -36,6 +36,12 @@ import A13 from "./avatars/A13.png";
 import A15 from "./avatars/A15.png";
 import A16 from "./avatars/A16.png";
 
+import greenBanner from "./green.png";
+import purpleBanner from "./purple.png";
+import redBanner from "./red.png";
+import whiteBanner from "./white.png";
+import yellowBanner from "./yellow.png";
+
 export {
   Logo,
   Prethigah,
@@ -69,4 +75,9 @@ export {
   A13,
   A15,
   A16,
+  greenBanner,
+  purpleBanner,
+  redBanner,
+  whiteBanner,
+  yellowBanner,
 };
