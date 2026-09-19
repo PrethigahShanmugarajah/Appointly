@@ -8,10 +8,10 @@ export const getBannerVariant = (msg) =>
     : "bg-[#F4F0FF] text-[#7D57F5] border-[#EBE4FF]";
 
 /* -------- Booking statuses -------- */
-export const statuses = ["", "confirmed", "rescheduled", "cancelled"];
+export const statuses = ["", "Confirmed", "Rescheduled", "Cancelled"];
 
 /* -------- Get booking status options -------- */
-export const getStatusOptions = (statuses) =>
+export const getStatusOptions = () =>
   statuses.map((status) => ({
     value: status,
     label: status ? status.replace("_", "") : "All Statuses",
