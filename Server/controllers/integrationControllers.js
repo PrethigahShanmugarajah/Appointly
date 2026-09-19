@@ -43,10 +43,6 @@ export const handleGoogleCallback = async (req, res) => {
   try {
     const { code, state } = req.query;
 
-    console.log("Google OAuth Code:", code);
-    console.log("Google OAuth State:", state);
-    console.log("Getting Google OAuth Tokens...");
-
     if (!code || !state) {
       return res.redirect(`${clientUrl}/profile?calendar=failed`);
     }
