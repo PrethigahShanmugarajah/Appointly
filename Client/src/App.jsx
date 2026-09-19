@@ -10,6 +10,7 @@ import AuthPage from "./pages/AuthPage/View/AuthPage";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import DashboardPage from "./pages/DashboardPage/View/DashboardPage";
 import ProfilePage from "./pages/ProfilePage/View/ProfilePage";
+import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
 
 const App = () => {
   return (
@@ -51,6 +52,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/bookings"
+          element={
+            <ProtectedRoute>
+              <BookingsPage />
             </ProtectedRoute>
           }
         />
