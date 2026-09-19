@@ -134,7 +134,7 @@ const AuthPage = () => {
         ? form
         : { email: form.email, password: form.password };
 
-      const { data } = await (isRegister
+      const data = await (isRegister
         ? registerUser(payload)
         : loginUser(payload));
 
