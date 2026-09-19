@@ -1,0 +1,37 @@
+// Client / src / utils / avatarMap.js
+import {
+  A1,
+  A10,
+  A11,
+  A12,
+  A13,
+  A15,
+  A16,
+  A2,
+  A3,
+  A4,
+  A5,
+  A6,
+  A7,
+  A8,
+  A9,
+} from "../assets/assets";
+
+/* -------- Avatar Map -------- */
+export const AVATAR_MAP = {
+  "A1.png": A1,
+  "A2.png": A2,
+  "A3.png": A3,
+  "A4.png": A4,
+  "A5.png": A5,
+  "A6.png": A6,
+  "A7.png": A7,
+  "A8.png": A8,
+  "A9.png": A9,
+  "A10.png": A10,
+  "A11.png": A11,
+  "A12.png": A12,
+  "A13.png": A13,
+  "A15.png": A15,
+  "A16.png": A16,
+};
