@@ -1,8 +1,11 @@
 // Client / src / pages / PublicBooking / Components / ServiceCard.jsx
 import { Check } from "lucide-react";
 import { ICON_MAP } from "../../../utils/iconMap";
+import { useAppContext } from "../../../context/appContext";
 
 const ServiceCard = ({ service, isActive, setForm, accent }) => {
+  const { CURRENCY } = useAppContext();
+
   return (
     <button
       key={service._id}
@@ -43,7 +46,8 @@ const ServiceCard = ({ service, isActive, setForm, accent }) => {
               : "mt-1 text-[13px] font-semibold text-white/60"
           }
         >
-          {service.duration} min · ₹{Number(service.price).toLocaleString()}
+          {service.duration} min · {CURRENCY}{" "}
+          {Number(service.price).toLocaleString()}
         </p>
 
         {service.description && (
