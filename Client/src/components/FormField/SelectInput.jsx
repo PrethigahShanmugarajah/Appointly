@@ -221,6 +221,8 @@ export const SelectInput = ({
   value = "",
   onChange,
   error,
+  iconLeft,
+  iconRight,
   ...rest
 }) => {
   const rules = useMemo(() => {
@@ -299,6 +301,23 @@ export const SelectInput = ({
           DropdownIndicator: components.DropdownIndicator,
           IndicatorSeparator: () => null,
           ClearIndicator: () => null,
+          Control: ({ children, ...props }) => (
+            <components.Control {...props}>
+              {iconLeft && (
+                <span className="ml-4 flex shrink-0 items-center text-gray-400">
+                  {iconLeft}
+                </span>
+              )}
+
+              {children}
+
+              {iconRight && (
+                <span className="mr-4 flex shrink-0 items-center text-gray-400">
+                  {iconRight}
+                </span>
+              )}
+            </components.Control>
+          ),
         }}
         styles={{
           control: (base, state) => {
@@ -360,6 +379,7 @@ export const SelectInput = ({
           valueContainer: (base) => ({
             ...base,
             padding: "0",
+            marginLeft: iconLeft ? "8px" : "0",
           }),
 
           indicatorsContainer: (base) => ({
