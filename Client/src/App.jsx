@@ -12,6 +12,7 @@ import DashboardPage from "./pages/DashboardPage/View/DashboardPage";
 import ProfilePage from "./pages/ProfilePage/View/ProfilePage";
 import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
 import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPage";
+import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage";
 
 const App = () => {
   return (
@@ -66,7 +67,9 @@ const App = () => {
           }
         />
 
-        <Route path="/booking/success" element={<BookingSuccessPage />} />
+        <Route path="/bookings/success" element={<BookingSuccessPage />} />
+
+        <Route path="/bookings/cancelled" element={<BookingCancelPage />} />
       </Routes>
     </>
   );
