@@ -396,3 +396,62 @@ export const deleteService = async (id) => {
     throw error;
   }
 };
+
+/* -------- Request Withdrawal -------- */
+export const requestWithdrawal = async (amount) => {
+  try {
+    const { data } = await client.post(API_ROUTES.PAYMENT.WITHDRAWALS, {
+      amount,
+    });
+
+    console.log("Request Withdrawal API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Request Withdrawal Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Withdrawal request with warning");
+      console.warn(
+        "Request Withdrawal Warning:",
+        data?.message || "Withdrawal request with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Request Withdrawal Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Update Payout Details -------- */
+export const updatePayoutDetails = async (payload) => {
+  try {
+    const { data } = await client.put(
+      API_ROUTES.PAYMENT.PAYOUT_DETAILS,
+      payload,
+    );
+
+    console.log("Update Payout Details API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Update Payout Details Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Payout details update with warning");
+      console.warn(
+        "Update Payout Details Warning:",
+        data?.message || "Payout details update with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Update Payout Details Error:", error);
+
+    throw error;
+  }
+};
