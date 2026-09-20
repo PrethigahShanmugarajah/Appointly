@@ -254,3 +254,34 @@ export const updateBookingStatus = async (id, status) => {
     throw error;
   }
 };
+
+/* -------- Cancel Public Booking Payment -------- */
+export const cancelPublicBookingPayments = async (bookingId) => {
+  try {
+    const { data } = await client.post(API_ROUTES.PUBLIC.CANCEL_PAYMENT, {
+      booking_id: bookingId,
+    });
+
+    console.log("Cancel Public Booking Payment API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Cancel Public Booking Payment Success:", data?.message);
+    } else {
+      toast.warn(
+        data?.message || "Public booking payment cancellation with warning",
+      );
+      console.warn(
+        "Cancel Public Booking Payment Warning:",
+        data?.message || "Public booking payment cancellation with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Cancel Public Booking Payment Error:", error);
+
+    throw error;
+  }
+};
