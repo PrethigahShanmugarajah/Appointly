@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import DashboardPage from "./pages/DashboardPage/View/DashboardPage";
 import ProfilePage from "./pages/ProfilePage/View/ProfilePage";
 import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
+import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPage";
 
 const App = () => {
   return (
@@ -64,6 +65,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/booking/success" element={<BookingSuccessPage />} />
       </Routes>
     </>
   );
