@@ -185,3 +185,30 @@ export const getPublicBookingStatus = async (params = {}) => {
     throw error;
   }
 };
+
+/* -------- Fetch Availability -------- */
+export const listAvailability = async () => {
+  try {
+    const { data } = await client.get(API_ROUTES.AVAILABILITY.BASE);
+
+    console.log("Availability API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Availability Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Availability with warning");
+      console.warn(
+        "Availability Warning:",
+        data?.message || "Availability with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Availability Error:", error);
+
+    throw error;
+  }
+};
