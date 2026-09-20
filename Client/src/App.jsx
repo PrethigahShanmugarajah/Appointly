@@ -16,6 +16,7 @@ import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage"
 import Availability from "./pages/Availability/View/Availability";
 import Service from "./pages/Service/View/Service";
 import Payment from "./pages/Payment/View/Payment";
+import PublicBooking from "./pages/PublicBooking/View/PublicBooking";
 
 const App = () => {
   return (
@@ -100,6 +101,8 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/book/:slug" element={<PublicBooking />} />
       </Routes>
     </>
   );
