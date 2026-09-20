@@ -1,7 +1,7 @@
 // Client / src / pages / ProfilePage / Components / BusinessDetailsForm.jsx
 import { Globe, Save, Users } from "lucide-react";
 import { useAppContext } from "../../../context/appContext";
-import { brandThemeOptions } from "../../../utils/profile";
+import { brandThemeOptions } from "../../../utils/theme";
 import { Oval } from "react-loader-spinner";
 import { InputField } from "../../../components/FormField/InputField";
 import { SelectInput } from "../../../components/FormField/SelectInput";
