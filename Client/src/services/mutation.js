@@ -285,3 +285,30 @@ export const cancelPublicBookingPayments = async (bookingId) => {
     throw error;
   }
 };
+
+/* -------- Save Availability -------- */
+export const saveAvailability = async (payload) => {
+  try {
+    const { data } = await client.post(API_ROUTES.AVAILABILITY.BASE, payload);
+
+    console.log("Save Availability API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Save Availability Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Availability save with warning");
+      console.warn(
+        "Save Availability Warning:",
+        data?.message || "Availability save with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Save Availability Error:", error);
+
+    throw error;
+  }
+};
