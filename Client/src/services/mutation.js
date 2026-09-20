@@ -312,3 +312,87 @@ export const saveAvailability = async (payload) => {
     throw error;
   }
 };
+
+/* -------- Update Service -------- */
+export const updateService = async (id, payload) => {
+  try {
+    const { data } = await client.put(
+      `${API_ROUTES.SERVICE.BASE}/${id}`,
+      payload,
+    );
+
+    console.log("Update Service API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Update Service Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Service update with warning");
+      console.warn(
+        "Update Service Warning:",
+        data?.message || "Service update with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Update Service Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Create Service -------- */
+export const createService = async (payload) => {
+  try {
+    const { data } = await client.post(API_ROUTES.SERVICE.BASE, payload);
+
+    console.log("Create Service API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Create Service Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Service creation with warning");
+      console.warn(
+        "Create Service Warning:",
+        data?.message || "Service creation with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Create Service Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Delete Service -------- */
+export const deleteService = async (id) => {
+  try {
+    const { data } = await client.delete(`${API_ROUTES.SERVICE.BASE}/${id}`);
+
+    console.log("Delete Service API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Delete Service Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Service deletion with warning");
+      console.warn(
+        "Delete Service Warning:",
+        data?.message || "Service deletion with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Delete Service Error:", error);
+
+    throw error;
+  }
+};
