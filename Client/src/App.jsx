@@ -14,6 +14,7 @@ import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
 import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPage";
 import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage";
 import Availability from "./pages/Availability/View/Availability";
+import Service from "./pages/Service/View/Service";
 
 const App = () => {
   return (
@@ -77,6 +78,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Availability />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/services"
+          element={
+            <ProtectedRoute>
+              <Service />
             </ProtectedRoute>
           }
         />
