@@ -16,3 +16,7 @@ export const getStatusOptions = () =>
     value: status,
     label: status ? status.replace("_", "") : "All Statuses",
   }));
+
+/* -------- Format booking status -------- */
+export const formatBookingStatus = (status) =>
+  status ? status.replace("_", " ") : "Not available";
