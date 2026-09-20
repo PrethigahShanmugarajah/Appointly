@@ -212,3 +212,59 @@ export const listAvailability = async () => {
     throw error;
   }
 };
+
+/* -------- Fetch Public Business -------- */
+export const getPublicBusiness = async (slug) => {
+  try {
+    const { data } = await client.get(API_ROUTES.PUBLIC.BUSINESS(slug));
+
+    console.log("Public Business API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Public Business Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Public business with warning");
+      console.warn(
+        "Public Business Warning:",
+        data?.message || "Public business with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Public Business Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Fetch Public Slots -------- */
+export const getPublicSlots = async (slug, params = {}) => {
+  try {
+    const { data } = await client.get(API_ROUTES.PUBLIC.SLOTS(slug), {
+      params,
+    });
+
+    console.log("Public Slots API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Public Slots Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Public slots with warning");
+      console.warn(
+        "Public Slots Warning:",
+        data?.message || "Public slots with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Public Slots Error:", error);
+
+    throw error;
+  }
+};
