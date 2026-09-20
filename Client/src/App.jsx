@@ -13,6 +13,7 @@ import ProfilePage from "./pages/ProfilePage/View/ProfilePage";
 import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
 import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPage";
 import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage";
+import Availability from "./pages/Availability/View/Availability";
 
 const App = () => {
   return (
@@ -70,6 +71,15 @@ const App = () => {
         <Route path="/bookings/success" element={<BookingSuccessPage />} />
 
         <Route path="/bookings/cancelled" element={<BookingCancelPage />} />
+
+        <Route
+          path="/availability"
+          element={
+            <ProtectedRoute>
+              <Availability />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
