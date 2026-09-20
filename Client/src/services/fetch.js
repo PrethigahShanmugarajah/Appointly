@@ -156,3 +156,32 @@ export const getGoogleConnectUrl = async () => {
     throw error;
   }
 };
+
+/* -------- Fetch Public Booking Status -------- */
+export const getPublicBookingStatus = async (params = {}) => {
+  try {
+    const { data } = await client.get(API_ROUTES.PUBLIC.BOOKING_STATUS, {
+      params,
+    });
+
+    console.log("Public Booking Status API Response:", data);
+
+    if (data?.success) {
+      // toast.success(data?.message);
+      console.log("Public Booking Status Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Public booking status with warning");
+      console.warn(
+        "Public Booking Status Warning:",
+        data?.message || "Public booking status warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Public Booking Status Error:", error);
+
+    throw error;
+  }
+};
