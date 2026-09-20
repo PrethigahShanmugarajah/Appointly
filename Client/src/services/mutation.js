@@ -455,3 +455,94 @@ export const updatePayoutDetails = async (payload) => {
     throw error;
   }
 };
+
+/* -------- Create Public Booking -------- */
+export const createPublicBooking = async (slug, payload) => {
+  try {
+    const { data } = await client.post(
+      API_ROUTES.PUBLIC.CREATE_BOOKING(slug),
+      payload,
+    );
+
+    console.log("Create Public Booking API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Create Public Booking Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Public booking creation with warning");
+      console.warn(
+        "Create Public Booking Warning:",
+        data?.message || "Public booking creation with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Create Public Booking Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Request Public Booking OTP -------- */
+export const requestPublicBookingOtp = async (slug, customerEmail) => {
+  try {
+    const { data } = await client.post(API_ROUTES.PUBLIC.REQUEST_OTP(slug), {
+      customerEmail,
+    });
+
+    console.log("Request Public Booking OTP API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Request Public Booking OTP Success:", data?.message);
+    } else {
+      toast.warn(data?.message || "Public booking OTP request with warning");
+      console.warn(
+        "Request Public Booking OTP Warning:",
+        data?.message || "Public booking OTP request with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Request Public Booking OTP Error:", error);
+
+    throw error;
+  }
+};
+
+/* -------- Verify Public Booking OTP -------- */
+export const verifyPublicBookingOtp = async (slug, payload) => {
+  try {
+    const { data } = await client.post(
+      API_ROUTES.PUBLIC.VERIFY_OTP(slug),
+      payload,
+    );
+
+    console.log("Verify Public Booking OTP API Response:", data);
+
+    if (data?.success) {
+      toast.success(data?.message);
+      console.log("Verify Public Booking OTP Success:", data?.message);
+    } else {
+      toast.warn(
+        data?.message || "Public booking OTP verification with warning",
+      );
+      console.warn(
+        "Verify Public Booking OTP Warning:",
+        data?.message || "Public booking OTP verification with warning",
+      );
+    }
+
+    return data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error?.message);
+    console.error("Verify Public Booking OTP Error:", error);
+
+    throw error;
+  }
+};
