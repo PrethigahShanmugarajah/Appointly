@@ -15,6 +15,7 @@ import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPa
 import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage";
 import Availability from "./pages/Availability/View/Availability";
 import Service from "./pages/Service/View/Service";
+import Payment from "./pages/Payment/View/Payment";
 
 const App = () => {
   return (
@@ -87,6 +88,15 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Service />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/payments"
+          element={
+            <ProtectedRoute>
+              <Payment />
             </ProtectedRoute>
           }
         />
