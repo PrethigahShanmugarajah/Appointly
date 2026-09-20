@@ -39,6 +39,8 @@ export const TextAreaField = ({
   onChange,
   onBlur,
   error,
+  iconLeft,
+  iconRight,
   ...rest
 }) => {
   const BP_MIN = { base: 0, sm: 640, md: 768, lg: 1024, xl: 1280, "2xl": 1536 };
@@ -105,7 +107,13 @@ export const TextAreaField = ({
       {labelPosition === "top" && renderLabel}
       {labelPosition === "left" && renderLabel}
 
-      <div className="w-full">
+      <div className="relative w-full">
+        {iconLeft && (
+          <span className="absolute left-4 top-4 text-gray-400">
+            {iconLeft}
+          </span>
+        )}
+
         <textarea
           id={name}
           name={name}
@@ -114,8 +122,8 @@ export const TextAreaField = ({
           className={`border border-purple-100 bg-white shadow-sm w-full focus:outline-none focus:border-purple-400 transition-all resize-none ${textareaClassName}`}
           style={{
             fontSize: `${s.fontSize}px`,
-            paddingLeft: s.px,
-            paddingRight: s.px,
+            paddingLeft: iconLeft ? "44px" : s.px,
+            paddingRight: iconRight ? "44px" : s.px,
             paddingTop: s.py,
             paddingBottom: s.py,
             borderRadius: s.radius,
@@ -125,6 +133,12 @@ export const TextAreaField = ({
           onBlur={(e) => onBlur?.(e.target.value, e)}
           {...rest}
         />
+
+        {iconRight && (
+          <span className="absolute right-4 top-4 text-gray-400">
+            {iconRight}
+          </span>
+        )}
 
         {!!error && (
           <p className={`text-rose-500 text-sm mt-1 ${errorClassName}`}>
