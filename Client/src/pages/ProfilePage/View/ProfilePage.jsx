@@ -1,11 +1,8 @@
 // Client / src / pages / ProfilePage / View / ProfilePage.jsx
 import { useEffect, useState } from "react";
 import { useAppContext } from "../../../context/appContext";
-import {
-  brandThemeStyles,
-  getPublicBookingLink,
-  themeBannerImages,
-} from "../../../utils/profile";
+import { getPublicBookingLink } from "../../../utils/profile";
+import { brandThemeStyles, themeBannerImages } from "../../../utils/theme";
 import { toast } from "react-toastify";
 import {
   getGoogleCalendarConnectUrl,
