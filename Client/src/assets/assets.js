@@ -11,6 +11,7 @@ import Stripe from "./Stripe.png";
 
 import P1 from "./P1.png";
 import P2 from "./P2.png";
+import P3 from "./P3.png";
 import P5 from "./P5.png";
 import P6 from "./P6.png";
 import P7 from "./P7.png";
@@ -57,6 +58,7 @@ export {
   Stripe,
   P1,
   P2,
+  P3,
   P5,
   P6,
   P7,
