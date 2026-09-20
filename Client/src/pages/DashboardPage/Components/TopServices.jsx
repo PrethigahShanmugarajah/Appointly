@@ -1,17 +1,6 @@
 // Client / src / pages / DashboardPage / Components / TopServices.jsx
 import { Link } from "react-router-dom";
-import { C1, C2, C3, C4, C5, C6, C7, C8 } from "../../../assets/assets";
-
-const ICON_MAP = {
-  "C1.png": C1,
-  "C2.png": C2,
-  "C3.png": C3,
-  "C4.png": C4,
-  "C5.png": C5,
-  "C6.png": C6,
-  "C7.png": C7,
-  "C8.png": C8,
-};
+import { ICON_MAP } from "../../../utils/iconMap";
 
 const TopServices = ({ topServices, bookings }) => {
   return (
