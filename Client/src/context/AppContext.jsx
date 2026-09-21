@@ -36,6 +36,8 @@ export const AppProvider = ({ children }) => {
   const TERMS_OF_SERVICE_LAST_UPDATED = import.meta.env
     .VITE_TERMS_OF_SERVICE_LAST_UPDATED;
 
+  const GOVERNING_LAW_COUNTRY = import.meta.env.VITE_GOVERNING_LAW_COUNTRY;
+
   const value = {
     navigate,
     location,
@@ -52,6 +54,7 @@ export const AppProvider = ({ children }) => {
     GOOGLE_API_SERVICES_POLICY_URL,
     PRIVACY_POLICY_LAST_UPDATED,
     TERMS_OF_SERVICE_LAST_UPDATED,
+    GOVERNING_LAW_COUNTRY,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
