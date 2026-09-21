@@ -1,9 +1,12 @@
 // Client / src / pages / PrivacyPolicy / Components / PrivacyPolicyHeader.jsx
+import { useAppContext } from "../../../context/appContext";
 import { Link } from "react-router-dom";
 import { Logo } from "../../../assets/assets";
 import { ArrowLeft, Shield } from "lucide-react";
 
 const PrivacyPolicyHeader = () => {
+  const { PRIVACY_POLICY_LAST_UPDATED } = useAppContext();
+
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
@@ -38,7 +41,7 @@ const PrivacyPolicyHeader = () => {
             </h1>
 
             <p className="text-sm font-medium text-slate-500 mt-1">
-              Last updated: May 26, 2026
+              Last updated: {PRIVACY_POLICY_LAST_UPDATED}
             </p>
           </div>
         </div>
