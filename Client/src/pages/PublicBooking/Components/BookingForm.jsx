@@ -338,7 +338,7 @@ const BookingForm = ({
             className="flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 text-[15px] font-extrabold text-white shadow-lg transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:hover:scale-100"
             style={{ backgroundColor: accent }}
           >
-            <Lock className="h-4.5 w-4.5" />
+            {!loading && <Lock className="h-4.5 w-4.5" />}
             {loading ? (
               <Oval
                 height={20}
