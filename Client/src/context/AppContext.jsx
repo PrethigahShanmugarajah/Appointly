@@ -25,6 +25,14 @@ export const AppProvider = ({ children }) => {
 
   const TIME_ZONES = import.meta.env.VITE_TIME_ZONES.split(",");
 
+  const SUPPORT_EMAIL = import.meta.env.VITE_SUPPORT_EMAIL;
+
+  const GOOGLE_API_SERVICES_POLICY_URL = import.meta.env
+    .VITE_GOOGLE_API_SERVICES_POLICY_URL;
+
+  const PRIVACY_POLICY_LAST_UPDATED = import.meta.env
+    .VITE_PRIVACY_POLICY_LAST_UPDATED;
+
   const value = {
     navigate,
     location,
@@ -37,6 +45,9 @@ export const AppProvider = ({ children }) => {
     FACEBOOK_SHARE_URL,
     TIME_ZONE,
     TIME_ZONES,
+    SUPPORT_EMAIL,
+    GOOGLE_API_SERVICES_POLICY_URL,
+    PRIVACY_POLICY_LAST_UPDATED,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
