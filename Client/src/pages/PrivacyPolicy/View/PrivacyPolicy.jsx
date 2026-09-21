@@ -1,11 +1,19 @@
 // Client / src / pages / PrivacyPolicy / View / PrivacyPolicy.jsx
-import PrivacyPolicyHeader from "../Components/PrivacyPolicyHeader";
+import { useAppContext } from "../../../context/appContext";
+import LegalHeader from "../../../components/LegalHeader";
+import { Shield } from "lucide-react";
 import PrivacyPolicySections from "../Components/PrivacyPolicySections";
 
 const PrivacyPolicy = () => {
+  const { PRIVACY_POLICY_LAST_UPDATED } = useAppContext();
+
   return (
     <div className="min-h-screen bg-[#f8f9fc] text-slate-900">
-      <PrivacyPolicyHeader />
+      <LegalHeader
+        title="Privacy Policy"
+        icon={Shield}
+        lastUpdated={PRIVACY_POLICY_LAST_UPDATED}
+      />
 
       {/* -------- Content -------- */}
       <main className="mx-auto max-w-4xl px-6 py-12 md:py-16">
