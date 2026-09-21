@@ -11,21 +11,37 @@ const PrivacyPolicySections = () => {
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed">
-          Appointly ("we," "our," or "us") values your privacy and is committed
-          to protecting your personal information. This Privacy Policy describes
-          how we collect, use, share, and protect information when you access or
-          use our web application and related services (collectively, the
-          "Service").
+          Appointly respects your privacy and is committed to handling personal
+          information responsibly. This Privacy Policy explains how we collect,
+          use, store, protect, and disclose information when you use Appointly,
+          including its website, appointment scheduling features, booking
+          services, and related functionality.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          2. Information We Collect
+          2. Scope of This Privacy Policy
         </h2>
 
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          This Privacy Policy applies to information collected through Appointly
+          and its related services. It explains how personal information is
+          handled when you create an account, manage services, make
+          appointments, communicate through the platform, or use connected
+          integrations. Third-party services that you access through Appointly
+          may have their own privacy policies.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          3. Information We Collect
+        </h2>
+        
         <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
-          We may collect information that you provide to us directly, such as:
+          Depending on how you use Appointly, we may collect the following
+          categories of information:
         </p>
 
         <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
@@ -33,198 +49,332 @@ const PrivacyPolicySections = () => {
             <span className="font-semibold text-slate-700">
               Account Information:
             </span>{" "}
-            Your name, email address, business name, and other profile
-            information provided when registering for an account.
+            Your name, email address, password-related information, business
+            name, profile details, and other information required to create and
+            manage your account.
           </li>
 
           <li>
             <span className="font-semibold text-slate-700">
-              Booking Information:
+              Appointment Information:
             </span>{" "}
-            Details related to appointments, including customer names, email
-            addresses, scheduled dates and times, and selected services.
+            Booking dates, appointment times, selected services, customer
+            details, and other information necessary to manage appointments.
           </li>
 
           <li>
             <span className="font-semibold text-slate-700">
-              Payment Information:
+              Business Information:
             </span>{" "}
-            Payment transactions are securely handled by our third-party payment
-            provider, Stripe. We do not retain complete payment card details on
-            our servers.
-          </li>
-
-          <li>
-            <span className="font-semibold text-slate-700">Calendar Data:</span>{" "}
-            If you connect Google Calendar, we use relevant calendar event
-            information to synchronize appointments and help prevent scheduling
-            overlaps.
+            Information about services, descriptions, availability, pricing,
+            business details, and other information entered by Providers.
           </li>
 
           <li>
             <span className="font-semibold text-slate-700">
-              Communication Data:
+              Communication Information:
             </span>{" "}
-            Email addresses used to deliver OTP verification codes and
-            appointment-related notifications.
+            Email addresses and information required to send OTP codes,
+            confirmations, reminders, cancellations, and other service-related
+            messages.
+          </li>
+
+          <li>
+            <span className="font-semibold text-slate-700">
+              Calendar Information:
+            </span>{" "}
+            Relevant Google Calendar information when you choose to connect your
+            calendar to Appointly.
           </li>
         </ul>
       </section>
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          3. How We Use Your Information
-        </h2>
-
-        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
-          <li>To deliver, manage, and maintain our Service</li>
-
-          <li>
-            To manage appointments, process payments, and provide booking
-            confirmations
-          </li>
-
-          <li>
-            To deliver OTP codes for secure account and booking verification
-          </li>
-
-          <li>
-            To synchronize appointment details with your connected Google
-            Calendar
-          </li>
-
-          <li>
-            To send appointment-related email updates to customers and service
-            providers
-          </li>
-
-          <li>To enhance and personalize your experience with the Service</li>
-
-          <li>
-            To identify and help prevent unauthorized or fraudulent use of the
-            Service
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          4. Third-Party Services
+          4. How We Collect Information
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
-          Appointly uses the following external services to support certain
-          features:
+          We may obtain information through several sources, including:
         </p>
 
         <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
           <li>
-            <span className="font-semibold text-slate-700">Stripe:</span> To
-            securely handle payment transactions. Payment information processed
-            through Stripe is subject to Stripe's privacy policy.
+            Information you provide when registering or updating your account.
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">
-              Google Calendar API:
-            </span>{" "}
-            To synchronize appointment events with your calendar. We request
-            only the permissions necessary to create and manage relevant
-            calendar events.
+            Information entered when creating services or making appointments.
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">Gmail API:</span> To
-            send appointment notifications and OTP verification messages using
-            your connected Gmail account.
+            Information generated when you use Appointly's features and
+            functionality.
+          </li>
+
+          <li>
+            Information received from third-party integrations that you
+            intentionally connect to your account.
+          </li>
+
+          <li>
+            Information collected through necessary cookies, local storage, and
+            similar technologies used to operate the Service.
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          5. How We Use Personal Information
+        </h2>
+
+        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
+          <li>To create and manage user accounts.</li>
+
+          <li>
+            To provide appointment scheduling, booking, and service management
+            features.
+          </li>
+
+          <li>
+            To process and manage appointment-related communications and
+            notifications.
+          </li>
+
+          <li>
+            To send OTP verification codes and other account security messages.
+          </li>
+
+          <li>
+            To synchronize information with connected third-party services when
+            you enable an integration.
+          </li>
+
+          <li>To maintain, operate, troubleshoot, and improve Appointly.</li>
+
+          <li>
+            To detect unauthorized access, fraud, misuse, or security threats.
+          </li>
+
+          <li>
+            To comply with applicable legal requirements and protect our
+            legitimate business interests.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          6. Appointment and Booking Information
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          When you create or manage an appointment through Appointly, we may
+          process information necessary to complete the booking. This can
+          include the Client's name, email address, selected service,
+          appointment date and time, and related booking information. Providers
+          are responsible for ensuring that information they enter into the
+          platform is collected and used appropriately.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          7. Payment Information
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          Payments made through Appointly may be processed by Stripe or another
+          applicable payment provider. Payment card information is handled by
+          the relevant payment provider according to its security and privacy
+          practices. Appointly does not intentionally store complete payment
+          card details on its own servers.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          8. Google Services and Calendar Data
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          If you choose to connect a Google account or Google Calendar,
+          Appointly may access information required to provide calendar
+          synchronization and related features. We use the requested Google data
+          only for the purposes necessary to provide the enabled functionality
+          and handle it in accordance with applicable Google API requirements.
+        </p>
       </section>
 
       <PrivacyPolicyGoogleApi />
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          6. Data Security
+          10. Email and Communication Services
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed">
-          We use suitable technical and organizational safeguards to help
-          protect your personal information, including HTTPS/TLS encryption for
-          data in transit, token-based authentication, and controlled access to
-          data. However, no electronic system or method of data transmission can
-          be guaranteed to be completely secure.
+          Appointly may use email and communication services to send account
+          verification codes, appointment confirmations, cancellation
+          notifications, and other messages related to the Service. We use
+          contact information necessary to deliver these communications and do
+          not use these service messages as a substitute for unrelated marketing
+          communications.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          7. Data Retention
+          11. How We Share Information
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed">
-          We keep your personal information while your account remains active or
-          for as long as necessary to deliver the Service. Appointment records
-          may be maintained for legitimate business and record-keeping purposes.
-          You can request the removal of your account and related information by
-          contacting us.
+          We may share personal information when necessary to operate Appointly,
+          provide requested functionality, process transactions, support
+          integrations, comply with legal obligations, or protect the rights and
+          security of Appointly and its users. We do not sell your personal
+          information as a business practice.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          8. Your Rights
+          12. Data Security
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          We apply reasonable technical and organizational measures designed to
+          protect personal information against unauthorized access, alteration,
+          disclosure, or destruction. These measures may include encrypted
+          connections, authentication mechanisms, access controls, and secure
+          handling of application data. However, no online system or method of
+          transmission can be guaranteed to be completely secure.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          13. Data Retention
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          We retain personal information for as long as reasonably necessary to
+          provide Appointly, maintain account and appointment records, meet
+          operational requirements, resolve disputes, enforce agreements, or
+          comply with applicable legal obligations. When information is no
+          longer required, we may delete or securely dispose of it in accordance
+          with our practices and applicable requirements.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          14. Your Privacy Rights
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
-          Depending on the laws applicable to you, you may have certain rights
-          regarding your personal information, including:
+          Depending on applicable law, you may have rights relating to your
+          personal information, which may include:
         </p>
 
         <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
-          <li>Access your personal information and request a copy of it</li>
-
-          <li>Ask us to correct or update inaccurate personal information</li>
+          <li>Requesting access to personal information we hold about you.</li>
 
           <li>
-            Request the deletion of your personal information where applicable
+            Requesting correction of inaccurate or incomplete information.
           </li>
 
           <li>
-            Withdraw your consent to certain data processing activities at any
-            time
+            Requesting deletion of personal information where legally
+            applicable.
           </li>
 
           <li>
-            Manage or disconnect available third-party integrations, such as
-            Google Calendar and Stripe, through your account settings
+            Requesting information about how your personal information is
+            processed.
+          </li>
+
+          <li>
+            Disconnecting supported third-party integrations from your account.
           </li>
         </ul>
-      </section>
 
-      <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          9. Cookies
-        </h2>
-
-        <p className="text-[15px] text-slate-600 leading-relaxed">
-          We use necessary cookies and local storage mechanisms to keep your
-          authentication session active. We do not use cookies for tracking or
-          third-party advertising purposes.
+        <p className="text-[15px] text-slate-600 leading-relaxed mt-3">
+          Requests relating to your personal information can be submitted using
+          the contact details provided in this Privacy Policy.
         </p>
       </section>
 
       <section>
         <h2 className="text-xl font-extrabold text-slate-900 mb-3">
-          10. Changes to This Policy
+          15. Cookies and Local Storage
         </h2>
 
         <p className="text-[15px] text-slate-600 leading-relaxed">
-          We may revise this Privacy Policy periodically to reflect changes to
-          our practices or services. Any updates will be reflected by changing
-          the "Last updated" date shown at the top of this page. We recommend
-          reviewing this policy from time to time to stay informed about any
-          changes.
+          Appointly may use necessary cookies and browser local storage to
+          support authentication, maintain sessions, remember required
+          application settings, and provide core functionality. These
+          technologies are intended to support the operation of the Service
+          rather than to provide third-party advertising.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          16. Third-Party Services and Links
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          Appointly may contain integrations or links to third-party services.
+          These services may collect and process information according to their
+          own terms and privacy policies. We are not responsible for the privacy
+          practices, security, availability, or content of third-party services.
+          We recommend reviewing their privacy policies before using those
+          services.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          17. Children's Privacy
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          Appointly is not intended to be used by children who are not legally
+          permitted to use online services under the laws applicable to them. We
+          do not knowingly seek to collect personal information from children
+          without appropriate authorization. If you believe that a child has
+          provided personal information to us improperly, please contact us so
+          that we can review the matter.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          18. International Data Transfers
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          Appointly may use infrastructure, service providers, or integrations
+          located in countries other than the country where you live. As a
+          result, personal information may be processed or stored outside your
+          country. Where required, we will take appropriate measures for such
+          processing in accordance with applicable law.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+          19. Changes to This Privacy Policy
+        </h2>
+
+        <p className="text-[15px] text-slate-600 leading-relaxed">
+          We may update this Privacy Policy from time to time to reflect changes
+          in Appointly, our information practices, third-party integrations, or
+          applicable requirements. When changes are made, the updated version
+          will be published on this page and the "Last updated" date will be
+          revised. We encourage you to review this Privacy Policy periodically.
         </p>
       </section>
 
