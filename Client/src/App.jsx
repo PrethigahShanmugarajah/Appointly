@@ -17,6 +17,7 @@ import Availability from "./pages/Availability/View/Availability";
 import Service from "./pages/Service/View/Service";
 import Payment from "./pages/Payment/View/Payment";
 import PublicBooking from "./pages/PublicBooking/View/PublicBooking";
+import PrivacyPolicy from "./pages/PrivacyPolicy/View/PrivacyPolicy";
 
 const App = () => {
   return (
@@ -103,6 +104,10 @@ const App = () => {
         />
 
         <Route path="/book/:slug" element={<PublicBooking />} />
+
+        <Route path="/public/:slug" element={<PublicBooking />} />
+
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </>
   );
