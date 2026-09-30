@@ -1,4 +1,3 @@
-// Server / services / bookingService.js
 import Booking from "../models/Booking.js";
 import { sendBookingNotification } from "../utils/bookingNotifications.js";
 import { createBookingCalendarEvent } from "../utils/googleCalendar.js";

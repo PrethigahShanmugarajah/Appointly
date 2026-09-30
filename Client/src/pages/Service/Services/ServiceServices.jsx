@@ -1,4 +1,3 @@
-// Client / src / pages / Service / Services / ServiceServices.jsx
 import { listServices } from "../../../services/fetch";
 import {
   createService,

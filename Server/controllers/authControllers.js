@@ -1,4 +1,3 @@
-// Server / controllers / authControllers.js
 import bcrypt from "bcrypt";
 import { timeZone } from "../config/env.js";
 import User from "../models/User.js";
@@ -23,13 +22,6 @@ export const registerUser = async (req, res) => {
       timezone,
       emailOtp,
     } = req.body;
-
-    // if (!name || !email || !password) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Name, email and password are required.",
-    //   });
-    // }
 
     if (!name) {
       return res.status(400).json({
@@ -209,13 +201,6 @@ export const verifyRegistrationOTP = async (req, res) => {
 
     const normalizedEmailValue = normalizedEmail(email);
 
-    // if (!normalizedEmailValue || !emailOtp) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Email and OTP are required.",
-    //   });
-    // }
-
     if (!normalizedEmailValue) {
       return res.status(400).json({
         success: false,
@@ -278,13 +263,6 @@ export const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     const normalizedEmailValue = normalizedEmail(email);
-
-    // if (!email || !password) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Email and password are required.",
-    //   });
-    // }
 
     if (!email) {
       return res.status(400).json({

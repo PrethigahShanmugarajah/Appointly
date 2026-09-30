@@ -1,20 +1,19 @@
-// Client / src / assets / assets.js
 import Logo from "./Logo.png";
 import Prethigah from "./Prethigah.png";
 
-import Facebook from "./Facebook.png";
-import Gmail from "./Gmail.png";
-import Instagram from "./Instagram.png";
-import WhatsApp from "./WhatsApp.png";
-import Google_Calendar from "./Google_Calendar.png";
-import Stripe from "./Stripe.png";
+import Facebook from "./integrations/Facebook.png";
+import Gmail from "./integrations/Gmail.png";
+import Instagram from "./integrations/Instagram.png";
+import WhatsApp from "./integrations/WhatsApp.png";
+import Google_Calendar from "./integrations/Google_Calendar.png";
+import Stripe from "./integrations/Stripe.png";
 
-import P1 from "./P1.png";
-import P2 from "./P2.png";
-import P3 from "./P3.png";
-import P5 from "./P5.png";
-import P6 from "./P6.png";
-import P7 from "./P7.png";
+import P1 from "./previews/P1.png";
+import P2 from "./previews/P2.png";
+import P3 from "./previews/P3.png";
+import P4 from "./previews/P4.png";
+import P5 from "./previews/P5.png";
+import P6 from "./previews/P6.png";
 
 import C1 from "./icons/C1.png";
 import C2 from "./icons/C2.png";
@@ -38,14 +37,15 @@ import A10 from "./avatars/A10.png";
 import A11 from "./avatars/A11.png";
 import A12 from "./avatars/A12.png";
 import A13 from "./avatars/A13.png";
+import A14 from "./avatars/A14.png";
 import A15 from "./avatars/A15.png";
 import A16 from "./avatars/A16.png";
 
-import greenBanner from "./green.png";
-import purpleBanner from "./purple.png";
-import redBanner from "./red.png";
-import whiteBanner from "./white.png";
-import yellowBanner from "./yellow.png";
+import emeraldBanner from "./themes/emerald.png";
+import cyanBanner from "./themes/cyan.png";
+import roseBanner from "./themes/rose.png";
+import whiteBanner from "./themes/white.png";
+import limeBanner from "./themes/lime.png";
 
 export {
   Logo,
@@ -59,9 +59,9 @@ export {
   P1,
   P2,
   P3,
+  P4,
   P5,
   P6,
-  P7,
   C1,
   C2,
   C3,
@@ -83,11 +83,12 @@ export {
   A11,
   A12,
   A13,
+  A14,
   A15,
   A16,
-  greenBanner,
-  purpleBanner,
-  redBanner,
+  emeraldBanner,
+  cyanBanner,
+  roseBanner,
   whiteBanner,
-  yellowBanner,
+  limeBanner,
 };

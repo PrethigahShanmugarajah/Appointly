@@ -1,4 +1,3 @@
-// Server / models / User.js
 import mongoose from "mongoose";
 import { timeZone } from "../config/env.js";
 
@@ -40,12 +39,12 @@ const userSchema = new mongoose.Schema(
     },
     brandTheme: {
       type: String,
-      enum: ["emerald", "indigo", "rose", "amber", "slate"],
-      default: "emerald",
+      enum: ["green", "blue", "red", "orange", "gray"],
+      default: "green",
     },
     brandAccent: {
       type: String,
-      default: "#047857",
+      default: "#15803D",
     },
     timeZone: {
       type: String,

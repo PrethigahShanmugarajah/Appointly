@@ -1,4 +1,3 @@
-// Server / services / adminService.js
 import Booking from "../models/Booking.js";
 import User from "../models/User.js";
 import WalletTransaction from "../models/WalletTransaction.js";

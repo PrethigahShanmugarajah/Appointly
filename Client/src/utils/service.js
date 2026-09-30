@@ -1,5 +1,3 @@
-// Client / src / utils / service.js
-
 /* -------- Service form -------- */
 export const emptyForm = {
   name: "",

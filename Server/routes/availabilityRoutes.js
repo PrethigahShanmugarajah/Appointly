@@ -1,4 +1,3 @@
-// Server / routes / availabilityRoutes.js
 import express from "express";
 import {
   listAvailability,

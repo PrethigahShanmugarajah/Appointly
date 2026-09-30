@@ -1,4 +1,3 @@
-// Server / routes / serviceRoutes.js
 import express from "express";
 import {
   createService,

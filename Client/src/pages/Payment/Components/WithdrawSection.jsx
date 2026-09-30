@@ -1,4 +1,3 @@
-// Client / src / pages / Payment / Components / WithdrawSection.jsx
 import { ArrowDownToLine } from "lucide-react";
 import { formatAmount } from "../../../utils/payment";
 import { submitWithdrawal } from "../Services/PaymentServices";
@@ -18,9 +17,9 @@ const WithdrawSection = ({
   const { CURRENCY } = useAppContext();
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900">
-        <ArrowDownToLine className="h-5 w-5 text-[#7D57F5]" />
+    <section className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 className="flex items-center gap-2 text-lg font-bold text-gray-900">
+        <ArrowDownToLine className="h-5 w-5 text-[#2DD4BF]" />
         Withdraw balance
       </h2>
 
@@ -50,7 +49,7 @@ const WithdrawSection = ({
         <button
           type="submit"
           disabled={loading || !payoutDetails.isComplete}
-          className="flex items-center justify-center gap-2 rounded-xl bg-linear-to-b from-[#CBB8FF] via-[#9B7BFF] to-[#7D57F5] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
+          className="flex items-center justify-center gap-2 rounded-xl bg-linear-to-b from-[#99F6E4] via-[#5EEAD4] to-[#2DD4BF] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
         >
           {loading ? (
             <Oval
@@ -70,7 +69,7 @@ const WithdrawSection = ({
       </form>
 
       {!payoutDetails.isComplete && (
-        <p className="mt-3 text-sm text-slate-500">
+        <p className="mt-3 text-sm text-gray-500">
           Save payout details before requesting a withdrawal.
         </p>
       )}

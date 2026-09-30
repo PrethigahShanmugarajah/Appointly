@@ -1,4 +1,3 @@
-// Server / models / Booking.js
 import mongoose from "mongoose";
 import { currency } from "../config/env.js";
 

@@ -1,4 +1,3 @@
-// Client / src / pages / PublicBooking / Services / PublicBookingServices.jsx
 import { toast } from "react-toastify";
 import {
   createPublicBooking,

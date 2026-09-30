@@ -1,4 +1,3 @@
-// Server / controllers / bookingControllers.js
 import Booking from "../models/Booking.js";
 import User from "../models/User.js";
 import { buildCustomerCalendarUrl } from "../utils/calendarLink.js";
@@ -169,13 +168,6 @@ export const updateBookingStatus = async (req, res) => {
 export const rescheduleBooking = async (req, res) => {
   try {
     const { date, startTime, endTime } = req.body;
-
-    // if (!date || !startTime || !endTime) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Date, start time, and end time are required.",
-    //   });
-    // }
 
     if (!date) {
       return res.status(400).json({

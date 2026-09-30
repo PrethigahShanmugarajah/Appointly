@@ -1,4 +1,3 @@
-// Client / src / services / fetch.js
 import { toast } from "react-toastify";
 import { adminClient } from "../api/admin";
 import API_ROUTES from "../api/api_route";
@@ -9,12 +8,7 @@ export const getAdminDashboard = async () => {
   try {
     const { data } = await adminClient.get(API_ROUTES.ADMIN.DASHBOARD);
 
-    console.log("Admin Dashboard API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Admin Dashboard Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Admin dashboard with warning");
       console.warn(
         "Admin Dashboard Warning:",
@@ -36,12 +30,7 @@ export const getMe = async () => {
   try {
     const { data } = await client.get(API_ROUTES.AUTH.GET_ME);
 
-    console.log("Get Me API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Get Me Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Get current user with warning");
       console.warn("Get Me Warning:", data?.message || "Get Me Warning");
     }
@@ -60,12 +49,7 @@ export const listBookings = async (params = {}) => {
   try {
     const { data } = await client.get(API_ROUTES.BOOKING.BASE, { params });
 
-    console.log("Bookings API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Bookings Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Bookings with warning");
       console.warn("Bookings Warning:", data?.message || "Bookings Warning");
     }
@@ -86,10 +70,7 @@ export const getPaymentOverview = async () => {
 
     console.log("Payment Overview API Response:", data);
 
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Payment Overview Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Payment overview with warning");
       console.warn(
         "Payment Overview Warning:",
@@ -111,12 +92,7 @@ export const listServices = async () => {
   try {
     const { data } = await client.get(API_ROUTES.SERVICE.BASE);
 
-    console.log("Services API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Services Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Services with warning");
       console.warn("Services Warning:", data?.message || "Services Warning");
     }
@@ -135,12 +111,7 @@ export const getGoogleConnectUrl = async () => {
   try {
     const { data } = await client.get(API_ROUTES.INTEGRATION.GOOGLE_CONNECT);
 
-    console.log("Google Connect URL API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Google Connect URL Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Google Connect URL with warning");
       console.warn(
         "Google Connect URL Warning:",
@@ -166,10 +137,7 @@ export const getPublicBookingStatus = async (params = {}) => {
 
     console.log("Public Booking Status API Response:", data);
 
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Public Booking Status Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Public booking status with warning");
       console.warn(
         "Public Booking Status Warning:",
@@ -191,12 +159,7 @@ export const listAvailability = async () => {
   try {
     const { data } = await client.get(API_ROUTES.AVAILABILITY.BASE);
 
-    console.log("Availability API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Availability Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Availability with warning");
       console.warn(
         "Availability Warning:",
@@ -218,12 +181,7 @@ export const getPublicBusiness = async (slug) => {
   try {
     const { data } = await client.get(API_ROUTES.PUBLIC.BUSINESS(slug));
 
-    console.log("Public Business API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Public Business Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Public business with warning");
       console.warn(
         "Public Business Warning:",
@@ -247,12 +205,7 @@ export const getPublicSlots = async (slug, params = {}) => {
       params,
     });
 
-    console.log("Public Slots API Response:", data);
-
-    if (data?.success) {
-      // toast.success(data?.message);
-      console.log("Public Slots Success:", data?.message);
-    } else {
+    if (!data?.success) {
       toast.warn(data?.message || "Public slots with warning");
       console.warn(
         "Public Slots Warning:",

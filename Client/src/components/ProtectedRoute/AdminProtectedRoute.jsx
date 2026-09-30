@@ -1,4 +1,3 @@
-// Client / src / components / ProtectedRoute / AdminProtectedRoute.jsx
 import { Navigate } from "react-router-dom";
 
 const AdminProtectedRoute = ({ children }) => {

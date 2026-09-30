@@ -1,4 +1,3 @@
-// Client / src / pages / PublicBooking / Components / BookingForm.jsx
 import {
   BadgeCheck,
   CalendarDays,
@@ -45,22 +44,22 @@ const BookingForm = ({
   const { CURRENCY } = useAppContext();
 
   return (
-    <section className="bg-white rounded-3xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.02)] border border-slate-100 p-6 sm:p-8 lg:p-12">
-      <h2 className="text-[22px] sm:text-[26px] font-extrabold text-slate-900">
+    <section className="bg-white rounded-3xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.02)] border border-gray-100 p-6 sm:p-8 lg:p-12">
+      <h2 className="text-[22px] sm:text-[26px] font-extrabold text-gray-900">
         Choose your appointment
       </h2>
 
       {selectedService ? (
-        <p className="mt-2.5 flex items-center gap-2 text-[14px] font-bold text-slate-500">
+        <p className="mt-2.5 flex items-center gap-2 text-[14px] font-bold text-gray-500">
           <Clock className="h-4 w-4" style={{ color: accent }} />
           <span style={{ color: accent }}>{selectedService.name}</span>
-          <span className="text-slate-300">·</span>
+          <span className="text-gray-300">·</span>
           {selectedService.duration} minutes
-          <span className="text-slate-300">·</span>
+          <span className="text-gray-300">·</span>
           {CURRENCY} {Number(selectedService.price).toLocaleString()}
         </p>
       ) : (
-        <p className="mt-2.5 text-[14px] font-medium text-slate-500">
+        <p className="mt-2.5 text-[14px] font-medium text-gray-500">
           Select a service to begin
         </p>
       )}
@@ -104,9 +103,7 @@ const BookingForm = ({
 
         {/* -------- Available times -------- */}
         <div className="pt-2">
-          <p className="text-[13px] font-bold text-slate-800">
-            Available times
-          </p>
+          <p className="text-[13px] font-bold text-gray-800">Available times</p>
 
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {slots.map((slot) => {
@@ -119,7 +116,7 @@ const BookingForm = ({
                   className={`flex items-center justify-center gap-2 rounded-[14px] border py-3.5 text-[14px] font-bold transition-all shadow-sm ${
                     isSlotSelected
                       ? "border-transparent text-white"
-                      : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                      : "border-gray-200 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50"
                   }`}
                   style={
                     isSlotSelected ? { backgroundColor: accent } : undefined
@@ -133,7 +130,7 @@ const BookingForm = ({
           </div>
 
           {slots.length === 0 && (
-            <p className="mt-3 text-[13px] font-medium text-slate-500 bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <p className="mt-3 text-[13px] font-medium text-gray-500 bg-gray-50 rounded-xl p-4 border border-gray-100">
               No times available for this date.
             </p>
           )}
@@ -183,9 +180,9 @@ const BookingForm = ({
         </div>
 
         {/* -------- OTP -------- */}
-        <div className="rounded-[20px] bg-[#f8f9fc] p-6 border border-slate-100">
+        <div className="rounded-[20px] bg-[#F4F4F5] p-6 border border-gray-100">
           <label
-            className="text-[13px] font-bold text-slate-800"
+            className="text-[13px] font-bold text-gray-800"
             style={{ color: accent }}
           >
             Email verification code
@@ -218,7 +215,7 @@ const BookingForm = ({
               <button
                 type="button"
                 disabled
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-emerald-500 text-white text-sm font-semibold cursor-default"
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-green-500 text-white text-sm font-semibold cursor-default"
               >
                 <BadgeCheck className="w-4 h-4" />
                 Verified
@@ -236,14 +233,14 @@ const BookingForm = ({
                   )
                 }
                 disabled={otpLoading || !form.customerEmail || otpCooldown > 0}
-                className="rounded-[14px] border border-slate-200 bg-white px-6 py-3.5 text-[13px] font-extrabold text-slate-700 hover:bg-slate-50 disabled:opacity-50 transition-colors shadow-sm"
+                className="rounded-[14px] border border-gray-200 bg-white px-6 py-3.5 text-[13px] font-extrabold text-gray-700 hover:bg-gray-50 disabled:opacity-50 transition-colors shadow-sm"
               >
                 {otpLoading ? (
                   <Oval
                     height={18}
                     width={18}
-                    color="#7D57F5"
-                    secondaryColor="#7C3AED"
+                    color="#2DD4BF"
+                    secondaryColor="#0D9488"
                     visible={true}
                     ariaLabel="loading"
                     strokeWidth={4}
@@ -263,7 +260,7 @@ const BookingForm = ({
 
         {/* -------- Avatar selector -------- */}
         <div className="pt-2">
-          <label className="text-[13px] font-bold text-slate-800">
+          <label className="text-[13px] font-bold text-gray-800">
             Choose your avatar
           </label>
           <div className="mt-3 grid grid-cols-5 sm:grid-cols-5 lg:grid-cols-8 gap-3">
@@ -282,7 +279,7 @@ const BookingForm = ({
                   className={`relative flex aspect-square items-center justify-center rounded-full border transition-all overflow-hidden ${
                     form.customerAvatar === avatarName
                       ? "ring-2 ring-offset-2"
-                      : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50"
+                      : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
                   }`}
                   style={
                     form.customerAvatar === avatarName
@@ -306,7 +303,7 @@ const BookingForm = ({
             label={
               <>
                 Notes{" "}
-                <span className="font-medium text-slate-400 ml-1">
+                <span className="font-medium text-gray-400 ml-1">
                   (Optional)
                 </span>
               </>
@@ -346,7 +343,7 @@ const BookingForm = ({
                 color="#ffffff"
                 visible={true}
                 ariaLabel="loading"
-                secondaryColor="#d1d5db"
+                secondaryColor="#CBD5E1"
                 strokeWidth={4}
                 strokeWidthSecondary={4}
               />
@@ -357,8 +354,8 @@ const BookingForm = ({
             )}
           </button>
 
-          <p className="mt-4 flex items-center justify-center gap-2 text-[12px] font-bold text-slate-500">
-            <Shield className="h-4 w-4 text-slate-400" />
+          <p className="mt-4 flex items-center justify-center gap-2 text-[12px] font-bold text-gray-500">
+            <Shield className="h-4 w-4 text-gray-400" />
             Secure payments powered by Stripe
           </p>
         </div>

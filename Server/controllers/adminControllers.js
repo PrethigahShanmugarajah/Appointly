@@ -1,4 +1,3 @@
-// Server / controllers / adminControllers.js
 import { adminEmail, adminPassword, adminPasswordHash } from "../config/env.js";
 import {
   createAdminToken,
@@ -20,13 +19,6 @@ export const loginAdmin = async (req, res) => {
 
     const normalizedAdminEmail = normalizedEmail(adminEmail || "");
 
-    // if (!normalizedAdminEmail || (!adminPassword && !adminPasswordHash)) {
-    //   return res.status(503).json({
-    //     success: false,
-    //     message: "Admin login is not configured",
-    //   });
-    // }
-
     if (!normalizedAdminEmail) {
       return res.status(503).json({
         success: false,
@@ -40,17 +32,6 @@ export const loginAdmin = async (req, res) => {
         message: "Admin login is not configured",
       });
     }
-
-    // if (
-    //   !email ||
-    //   !password ||
-    //   normalizedEmail(email) !== normalizedAdminEmail
-    // ) {
-    //   return res.status(401).json({
-    //     success: false,
-    //     message: "Invalid admin credentials",
-    //   });
-    // }
 
     if (!email) {
       return res.status(401).json({

@@ -1,4 +1,3 @@
-// Server / controllers / integrationControllers.js
 import {
   clientUrl,
   googleClientId,

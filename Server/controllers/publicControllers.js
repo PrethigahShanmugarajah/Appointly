@@ -1,4 +1,3 @@
-// Server / controllers / publicControllers.js
 import Service from "../models/Service.js";
 import { normalizedEmail } from "../utils/auth.js";
 import {
@@ -62,13 +61,6 @@ export const getPublicBusiness = async (req, res) => {
 export const getPublicSlots = async (req, res) => {
   try {
     const { date, serviceId } = req.query;
-
-    // if (!date || !serviceId) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Date and service are required.",
-    //   });
-    // }
 
     if (!date) {
       return res.status(400).json({
@@ -182,13 +174,6 @@ export const verifyPublicBookingOtp = async (req, res) => {
   try {
     const { customerEmail, emailOtp } = req.body;
 
-    // if (!customerEmail || !emailOtp) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Email and OTP are required.",
-    //   });
-    // }
-
     const normalizedEmailValue = normalizedEmail(customerEmail);
 
     if (!normalizedEmailValue) {
@@ -254,21 +239,6 @@ export const createPublicBooking = async (req, res) => {
     } = req.body;
 
     const normalizedCustomerEmail = normalizedEmail(customerEmail);
-
-    // if (
-    //   !serviceId ||
-    //   !customerName ||
-    //   !customerEmail ||
-    //   !date ||
-    //   !startTime ||
-    //   !endTime
-    // ) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message:
-    //       "Service, customer name, customer email, date, start time, and end time are required.",
-    //   });
-    // }
 
     if (!serviceId) {
       return res.status(400).json({
@@ -482,8 +452,8 @@ export const createPublicBooking = async (req, res) => {
       metadata: {
         bookingId: String(booking._id),
       },
-      success_url: `${defaultClientUrl}/booking/success?session_id={CHECKOUT_SESSION_ID}&slug=${business.slug}`,
-      cancel_url: `${defaultClientUrl}/booking/cancelled?booking_id=${booking._id}&slug=${business.slug}`,
+      success_url: `${defaultClientUrl}/bookings/success?session_id={CHECKOUT_SESSION_ID}&slug=${business.slug}`,
+      cancel_url: `${defaultClientUrl}/bookings/cancelled?booking_id=${booking._id}&slug=${business.slug}`,
     });
 
     booking.stripeSessionId = session.id;
@@ -569,14 +539,6 @@ export const getBookingStatus = async (req, res) => {
         User.findById(booking.userId),
         Service.findById(booking.serviceId),
       ]);
-
-      // if (!business || !service) {
-      //   return res.status(404).json({
-      //     success: false,
-      //     message:
-      //       "The business or service associated with this booking was not found.",
-      //   });
-      // }
 
       if (!business) {
         return res.status(404).json({

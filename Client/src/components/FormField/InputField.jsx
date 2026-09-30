@@ -1,4 +1,3 @@
-// Client / src / components / FormField / InputField.jsx
 import { useEffect, useMemo, useState } from "react";
 
 const SIZE_CONFIG = {
@@ -92,7 +91,7 @@ export const InputField = ({
 
   const s = getSize(resolvedSize);
 
-  const baseInput = `rounded-full border border-purple-100 bg-white shadow-sm w-full focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-100 ${s.py} ${s.px} ${s.text}`;
+  const baseInput = `rounded-full border border-cyan-100 bg-white shadow-sm w-full focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-100 ${s.py} ${s.px} ${s.text}`;
   const unstyledInput =
     "w-full p-0 border-0 shadow-none rounded-none outline-none focus:outline-none focus:ring-0";
 
@@ -101,7 +100,7 @@ export const InputField = ({
       htmlFor={name}
       className={`block font-medium text-black ${labelClassName}`}
     >
-      {label} {rest.required && <span className="text-rose-500 ml-1">*</span>}
+      {label} {rest.required && <span className="text-red-500 ml-1">*</span>}
     </label>
   ) : null;
 
@@ -120,7 +119,7 @@ export const InputField = ({
 
       <div className="relative w-full">
         {iconLeft && (
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
             {iconLeft}
           </span>
         )}
@@ -139,7 +138,7 @@ export const InputField = ({
         />
 
         {iconRight && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
             {iconRight}
           </span>
         )}
@@ -148,7 +147,7 @@ export const InputField = ({
       {(labelPosition === "right" || labelPosition === "bottom") && renderLabel}
 
       {!!error && (
-        <p className={`text-rose-500 text-sm mt-1 ${errorClassName}`}>{error}</p>
+        <p className={`text-red-500 text-sm mt-1 ${errorClassName}`}>{error}</p>
       )}
     </div>
   );

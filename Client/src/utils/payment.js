@@ -1,5 +1,3 @@
-// Client / src / utils / payment.js
-
 /* -------- Get transaction label -------- */
 export const transactionLabel = (transaction) => {
   if (transaction.type === "booking_payment") {

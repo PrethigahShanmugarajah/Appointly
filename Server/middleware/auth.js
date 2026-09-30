@@ -1,4 +1,3 @@
-// Serve / middleware / auth.js
 import jwt from "jsonwebtoken";
 
 /* -------- Authenticate User with JWT Token -------- */

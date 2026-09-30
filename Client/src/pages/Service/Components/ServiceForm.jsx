@@ -1,6 +1,5 @@
-// Client / src / pages / Service / Components / ServiceForm.jsx
 import { Clock, FileText, Layers, Plus, Save, X } from "lucide-react";
-import { P6 } from "../../../assets/assets";
+import { P5 } from "../../../assets/assets";
 import { useAppContext } from "../../../context/appContext";
 import { InputField } from "../../../components/FormField/InputField";
 import { SelectInput } from "../../../components/FormField/SelectInput";
@@ -23,18 +22,18 @@ const ServiceForm = ({
     <section>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#7D57F5]">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2DD4BF]">
             Services
           </p>
 
-          <h1 className="mt-2 text-[28px] md:text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#0D0E2A]">
+          <h1 className="mt-2 text-[28px] md:text-[36px] font-extrabold leading-[1.1] tracking-tight text-[#164E63]">
             Shape what customers can{" "}
-            <span className="bg-linear-to-b from-[#FFA1CF] via-[#FF5C9D] to-[#E11D48] bg-clip-text text-transparent custom-brand-font text-[32px] md:text-[42px] relative top-0 md:top-1 ml-1 md:ml-2">
+            <span className="bg-linear-to-b from-[#F0ABFC] via-[#E879F9] to-[#DC2626] bg-clip-text text-transparent custom-brand-font text-[32px] md:text-[42px] relative top-0 md:top-1 ml-1 md:ml-2">
               book.
             </span>
           </h1>
 
-          <p className="mt-2 max-w-md text-[13px] md:text-sm text-slate-500">
+          <p className="mt-2 max-w-md text-[13px] md:text-sm text-gray-500">
             Add each appointment type with a duration and price. Active services
             appear on your public booking page.
           </p>
@@ -42,7 +41,7 @@ const ServiceForm = ({
 
         <div className="hidden lg:block h-48 w-48 shrink-0">
           <img
-            src={P6}
+            src={P5}
             alt="Illustration"
             className="w-full h-full object-contain drop-shadow-sm"
           />
@@ -51,10 +50,10 @@ const ServiceForm = ({
 
       <form
         onSubmit={handleSubmit}
-        className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+        className="mt-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
       >
-        <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
-          <Plus className="h-5 w-5 text-[#7D57F5]" />
+        <h3 className="flex items-center gap-2 text-lg font-bold text-gray-900">
+          <Plus className="h-5 w-5 text-[#2DD4BF]" />
           {editingId ? "Edit service" : "Add new service"}
         </h3>
 
@@ -120,7 +119,7 @@ const ServiceForm = ({
             iconLeft={<FileText className="h-4 w-4" />}
           />
 
-          <label className="text-sm font-medium text-slate-700">
+          <label className="text-sm font-medium text-gray-700">
             Service Icon
             <div className="mt-3 grid grid-cols-4 gap-2 md:gap-3 sm:grid-cols-4 lg:grid-cols-8">
               {Object.keys(ICON_MAP).map((iconName) => (
@@ -132,8 +131,8 @@ const ServiceForm = ({
                   }
                   className={
                     form.icon === iconName
-                      ? "relative flex aspect-square items-center justify-center rounded-xl border transition-all overflow-hidden border-[#7D57F5] bg-[#F4F0FF] ring-2 ring-[#7D57F5]/20"
-                      : "relative flex aspect-square items-center justify-center rounded-xl border transition-all overflow-hidden border-slate-200 bg-white hover:border-[#7D57F5]/50 hover:bg-slate-50"
+                      ? "relative flex aspect-square items-center justify-center rounded-xl border transition-all overflow-hidden border-[#2DD4BF] bg-[#F0FDFA] ring-2 ring-[#2DD4BF]/20"
+                      : "relative flex aspect-square items-center justify-center rounded-xl border transition-all overflow-hidden border-gray-200 bg-white hover:border-[#2DD4BF]/50 hover:bg-gray-50"
                   }
                 >
                   <img
@@ -151,7 +150,7 @@ const ServiceForm = ({
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center gap-2 rounded-xl bg-linear-to-b from-[#CBB8FF] via-[#9B7BFF] to-[#7D57F5] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
+            className="flex items-center gap-2 rounded-xl bg-linear-to-b from-[#99F6E4] via-[#5EEAD4] to-[#2DD4BF] px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
           >
             {loading ? (
               <Oval
@@ -179,7 +178,7 @@ const ServiceForm = ({
             <button
               type="button"
               onClick={cancelEditing}
-              className="flex items-center gap-1.5 rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+              className="flex items-center gap-1.5 rounded-xl border border-gray-200 px-5 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50"
             >
               <X className="h-4 w-4" />
               Cancel

@@ -1,4 +1,3 @@
-// Client / src / pages / Payment / Components / PayoutDetailsForm.jsx
 import { Building2, Save } from "lucide-react";
 import {
   handlePaymentChange,
@@ -16,13 +15,13 @@ const PayoutDetailsForm = ({
   loading,
 }) => {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900">
-        <Building2 className="h-5 w-5 text-[#7D57F5]" />
+    <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 className="flex items-center gap-2 text-lg font-bold text-gray-900">
+        <Building2 className="h-5 w-5 text-[#2DD4BF]" />
         Payout details
       </h2>
 
-      <p className="mt-1.5 text-sm text-slate-500">
+      <p className="mt-1.5 text-sm text-gray-500">
         We store only masked account information. Use Stripe Connect or a payout
         provider before moving real money in production.
       </p>
@@ -85,7 +84,7 @@ const PayoutDetailsForm = ({
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-b from-[#CBB8FF] via-[#9B7BFF] to-[#7D57F5] px-5 py-3.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-linear-to-b from-[#99F6E4] via-[#5EEAD4] to-[#2DD4BF] px-5 py-3.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity disabled:opacity-60"
         >
           {loading ? (
             <Oval

@@ -1,4 +1,3 @@
-// Client / src / components / ConfirmPopup.jsx
 import { X } from "lucide-react";
 import { Oval } from "react-loader-spinner";
 
@@ -11,7 +10,7 @@ const ConfirmPopup = ({
   description,
   confirmText,
   closeText = "Close",
-  confirmColor = "rose",
+  confirmColor = "black",
   maxWidth = "max-w-md",
   showCloseIcon = true,
   children,
@@ -19,21 +18,33 @@ const ConfirmPopup = ({
   const body = children ?? description;
 
   const colorClasses = {
-    rose: {
-      button: "bg-rose-600 hover:bg-rose-700 text-white",
-      title: "text-rose-600",
-      loader: "#E11D48",
-      border: "border-rose-300",
+    black: {
+      button: "bg-black hover:bg-black/70 text-white",
+      title: "text-black",
+      loader: "#000000",
+      border: "border-black/30",
     },
-    gray: {
-      button: "bg-gray-600 hover:bg-gray-700 text-white",
-      title: "text-gray-600",
-      loader: "#4B5563",
-      border: "border-gray-300",
+    red: {
+      button: "bg-red-600 hover:bg-red-700 text-white",
+      title: "text-red-600",
+      loader: "#DC2626",
+      border: "border-red-300",
+    },
+    amber: {
+      button: "bg-amber-600 hover:bg-amber-700 text-white",
+      title: "text-amber-600",
+      loader: "#D97706",
+      border: "border-amber-300",
+    },
+    emerald: {
+      button: "bg-emerald-600 hover:bg-emerald-700 text-white",
+      title: "text-emerald-600",
+      loader: "#059669",
+      border: "border-emerald-300",
     },
   };
 
-  const colors = colorClasses[confirmColor] || colorClasses.rose;
+  const colors = colorClasses[confirmColor] || colorClasses.red;
 
   return (
     <div
@@ -42,14 +53,14 @@ const ConfirmPopup = ({
       aria-modal="true"
     >
       <div
-        className={`relative w-full ${maxWidth} rounded-xl border border-gray-300 bg-white p-6 shadow-lg`}
+        className={`relative w-full ${maxWidth} rounded-xl border border-slate-300 bg-white p-6 shadow-lg`}
       >
         {showCloseIcon && (
           <button
             type="button"
             onClick={onClose}
             disabled={!!loading}
-            className="absolute top-4 right-4 text-black hover:text-gray-700 disabled:opacity-60"
+            className="absolute top-4 right-4 text-black hover:text-slate-700 disabled:opacity-60"
             aria-label="Close"
           >
             <X size={20} />
@@ -78,7 +89,7 @@ const ConfirmPopup = ({
               type="button"
               onClick={onClose}
               disabled={!!loading}
-              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-black transition disabled:opacity-60"
+              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-black transition disabled:opacity-60"
             >
               {closeText}
             </button>

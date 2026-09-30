@@ -1,4 +1,3 @@
-// Server / utils / wallet.js
 import WalletTransaction from "../models/WalletTransaction.js";
 import Withdrawal from "../models/Withdrawal.js";
 

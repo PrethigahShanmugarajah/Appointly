@@ -1,5 +1,3 @@
-// Client / src / utils / adminDashboard.js
-
 /* -------- Withdrawal Statuses -------- */
 export const withdrawalStatuses = ["processing", "paid", "rejected"];
 

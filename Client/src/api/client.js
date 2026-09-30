@@ -1,4 +1,3 @@
-// Client / src / api/ client.js
 import axios from "axios";
 
 /* -------- Create Axios Client -------- */

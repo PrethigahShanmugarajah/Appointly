@@ -1,15 +1,8 @@
-// Server / controllers / serviceControllers.js
 import Service from "../models/Service.js";
 
 /* -------- List Services -------- */
 export const listServices = async (req, res) => {
   try {
-    // const services = (
-    //   await Service.find({
-    //     userId: req.user.id,
-    //     isDeleted: { $ne: true },
-    //   })
-    // ).toSorted({ createdAt: -1 });
 
     const services = await Service.find({
       userId: req.user.id,
@@ -45,12 +38,6 @@ export const createService = async (req, res) => {
   try {
     const { name, duration, price, description, icon } = req.body;
 
-    // if (!name || !duration) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Service name and duration are required.",
-    //   });
-    // }
 
     if (!name) {
       return res.status(400).json({

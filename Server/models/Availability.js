@@ -1,4 +1,3 @@
-// Server / models / Availability.js
 import mongoose from "mongoose";
 
 const slotSchema = new mongoose.Schema(

@@ -1,4 +1,3 @@
-// Server / routes / integrationRoutes.js
 import express from "express";
 import {
   getGoogleConnectUrl,

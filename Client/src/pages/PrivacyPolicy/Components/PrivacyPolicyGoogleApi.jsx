@@ -1,4 +1,3 @@
-// Client / src / pages / PrivacyPolicy / Components / PrivacyPolicyGoogleApi.jsx
 import { useAppContext } from "../../../context/appContext";
 
 const PrivacyPolicyGoogleApi = () => {
@@ -6,11 +5,11 @@ const PrivacyPolicyGoogleApi = () => {
 
   return (
     <section>
-      <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+      <h2 className="text-xl font-extrabold text-gray-900 mb-3">
         9. Google API Services — Limited Use Disclosure
       </h2>
 
-      <p className="text-[15px] text-slate-600 leading-relaxed">
+      <p className="text-[15px] text-gray-600 leading-relaxed">
         When you connect a Google service to Appointly, we may access and
         process the Google data required to provide the features you have
         enabled, such as calendar synchronization and appointment-related
@@ -23,7 +22,7 @@ const PrivacyPolicyGoogleApi = () => {
           href={GOOGLE_API_SERVICES_POLICY_URL}
           target="_blank"
           rel="noreferrer"
-          className="text-[#7D57F5] font-semibold hover:underline"
+          className="text-[#2DD4BF] font-semibold hover:underline"
         >
           Google API Services User Data Policy
         </a>

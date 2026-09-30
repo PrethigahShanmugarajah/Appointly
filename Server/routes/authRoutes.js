@@ -1,4 +1,3 @@
-// Server / routes / authRoutes.js
 import express from "express";
 import {
   getMe,

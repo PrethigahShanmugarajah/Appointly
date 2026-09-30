@@ -9,11 +9,8 @@ export const adminLogin = async (payload) => {
   try {
     const { data } = await adminClient.post(API_ROUTES.ADMIN.LOGIN, payload);
 
-    console.log("Admin Login API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Admin Login Success:", data?.message);
     } else {
       toast.warn(data?.message || "Admin login with warning");
       console.warn(
@@ -39,11 +36,8 @@ export const updateWithdrawalStatus = async (id, payload) => {
       payload,
     );
 
-    console.log("Update Withdrawal Status API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Update Withdrawal Status Success:", data?.message);
     } else {
       toast.warn(data?.message || "Withdrawal status update with warning");
       console.warn(
@@ -66,11 +60,8 @@ export const verifyRegistrationOtp = async (payload) => {
   try {
     const { data } = await client.post(API_ROUTES.AUTH.VERIFY_OTP, payload);
 
-    console.log("Verify Registration OTP API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Verify Registration OTP Success:", data?.message);
     } else {
       toast.warn(data?.message || "OTP verification with warning");
       console.warn(
@@ -93,11 +84,8 @@ export const requestRegistrationOtp = async (email) => {
   try {
     const { data } = await client.post(API_ROUTES.AUTH.REQUEST_OTP, { email });
 
-    console.log("Request Registration OTP API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Request Registration OTP Success:", data?.message);
     } else {
       toast.warn(data?.message || "OTP request with warning");
       console.warn(
@@ -120,11 +108,8 @@ export const register = async (payload) => {
   try {
     const { data } = await client.post(API_ROUTES.AUTH.REGISTER, payload);
 
-    console.log("Register API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Register Success:", data?.message);
     } else {
       toast.warn(data?.message || "Registration with warning");
       console.warn(
@@ -147,11 +132,8 @@ export const login = async (payload) => {
   try {
     const { data } = await client.post(API_ROUTES.AUTH.LOGIN, payload);
 
-    console.log("User Login API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("User Login Success:", data?.message);
     } else {
       toast.warn(data?.message || "User login with warning");
       console.warn(
@@ -174,11 +156,8 @@ export const updateProfile = async (payload) => {
   try {
     const { data } = await client.put(API_ROUTES.AUTH.UPDATE_PROFILE, payload);
 
-    console.log("Update Profile API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Update Profile Success:", data?.message);
     } else {
       toast.warn(data?.message || "Profile update with warning");
       console.warn(
@@ -204,11 +183,8 @@ export const rescheduleBooking = async (id, payload) => {
       payload,
     );
 
-    console.log("Reschedule Booking API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Reschedule Booking Success:", data?.message);
     } else {
       toast.warn(data?.message || "Booking reschedule with warning");
       console.warn(
@@ -233,11 +209,8 @@ export const updateBookingStatus = async (id, status) => {
       status,
     });
 
-    console.log("Update Booking Status API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Update Booking Status Success:", data?.message);
     } else {
       toast.warn(data?.message || "Booking status update with warning");
       console.warn(
@@ -262,11 +235,8 @@ export const cancelPublicBookingPayments = async (bookingId) => {
       booking_id: bookingId,
     });
 
-    console.log("Cancel Public Booking Payment API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Cancel Public Booking Payment Success:", data?.message);
     } else {
       toast.warn(
         data?.message || "Public booking payment cancellation with warning",
@@ -291,11 +261,8 @@ export const saveAvailability = async (payload) => {
   try {
     const { data } = await client.post(API_ROUTES.AVAILABILITY.BASE, payload);
 
-    console.log("Save Availability API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Save Availability Success:", data?.message);
     } else {
       toast.warn(data?.message || "Availability save with warning");
       console.warn(
@@ -321,11 +288,8 @@ export const updateService = async (id, payload) => {
       payload,
     );
 
-    console.log("Update Service API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Update Service Success:", data?.message);
     } else {
       toast.warn(data?.message || "Service update with warning");
       console.warn(
@@ -348,11 +312,8 @@ export const createService = async (payload) => {
   try {
     const { data } = await client.post(API_ROUTES.SERVICE.BASE, payload);
 
-    console.log("Create Service API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Create Service Success:", data?.message);
     } else {
       toast.warn(data?.message || "Service creation with warning");
       console.warn(
@@ -375,11 +336,8 @@ export const deleteService = async (id) => {
   try {
     const { data } = await client.delete(`${API_ROUTES.SERVICE.BASE}/${id}`);
 
-    console.log("Delete Service API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Delete Service Success:", data?.message);
     } else {
       toast.warn(data?.message || "Service deletion with warning");
       console.warn(
@@ -404,11 +362,8 @@ export const requestWithdrawal = async (amount) => {
       amount,
     });
 
-    console.log("Request Withdrawal API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Request Withdrawal Success:", data?.message);
     } else {
       toast.warn(data?.message || "Withdrawal request with warning");
       console.warn(
@@ -434,11 +389,8 @@ export const updatePayoutDetails = async (payload) => {
       payload,
     );
 
-    console.log("Update Payout Details API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Update Payout Details Success:", data?.message);
     } else {
       toast.warn(data?.message || "Payout details update with warning");
       console.warn(
@@ -464,11 +416,8 @@ export const createPublicBooking = async (slug, payload) => {
       payload,
     );
 
-    console.log("Create Public Booking API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Create Public Booking Success:", data?.message);
     } else {
       toast.warn(data?.message || "Public booking creation with warning");
       console.warn(
@@ -493,11 +442,8 @@ export const requestPublicBookingOtp = async (slug, customerEmail) => {
       customerEmail,
     });
 
-    console.log("Request Public Booking OTP API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Request Public Booking OTP Success:", data?.message);
     } else {
       toast.warn(data?.message || "Public booking OTP request with warning");
       console.warn(
@@ -523,11 +469,8 @@ export const verifyPublicBookingOtp = async (slug, payload) => {
       payload,
     );
 
-    console.log("Verify Public Booking OTP API Response:", data);
-
     if (data?.success) {
       toast.success(data?.message);
-      console.log("Verify Public Booking OTP Success:", data?.message);
     } else {
       toast.warn(
         data?.message || "Public booking OTP verification with warning",

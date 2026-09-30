@@ -1,4 +1,3 @@
-// Client / src / pages / Payment / View / Payment.jsx
 import { useEffect, useState } from "react";
 import { loadPaymentOverview } from "../Services/PaymentServices";
 import AppLayout from "../../../components/AppLayout";

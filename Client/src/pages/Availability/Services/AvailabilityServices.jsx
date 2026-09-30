@@ -1,4 +1,3 @@
-// Client / src / pages / Availability / Services / AvailabilityServices.jsx
 import { listAvailability } from "../../../services/fetch";
 import { saveAvailability } from "../../../services/mutation";
 import { getSlotsForDays } from "../../../utils/availability";

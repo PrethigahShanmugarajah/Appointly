@@ -1,10 +1,10 @@
-// Client / src / utils / avatarMap.js
 import {
   A1,
   A10,
   A11,
   A12,
   A13,
+  A14,
   A15,
   A16,
   A2,
@@ -32,6 +32,7 @@ export const AVATAR_MAP = {
   "A11.png": A11,
   "A12.png": A12,
   "A13.png": A13,
+  "A14.png": A14,
   "A15.png": A15,
   "A16.png": A16,
 };

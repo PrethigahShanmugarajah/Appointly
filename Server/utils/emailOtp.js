@@ -1,4 +1,3 @@
-// Server / utils / emailOtp.js
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { maxOtpAttempts, otpTtlMinutes } from "../config/env.js";

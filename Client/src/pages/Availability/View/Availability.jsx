@@ -1,4 +1,3 @@
-// Client / src / pages / Availability / View / Availability.jsx
 import { useEffect, useMemo, useState } from "react";
 import { defaultSlot, getSlotsForDays } from "../../../utils/availability";
 import {

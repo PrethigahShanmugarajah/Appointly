@@ -1,4 +1,3 @@
-// Client / src / pages / Payment / Components / RecentActivity.jsx
 import {
   ArrowDownLeft,
   ArrowUpRight,
@@ -14,16 +13,16 @@ const RecentActivity = ({ transactions }) => {
   const { CURRENCY, VITE_LOCALE } = useAppContext();
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900">
-          <CreditCard className="h-5 w-5 text-[#7D57F5]" />
+        <h2 className="flex items-center gap-2 text-lg font-bold text-gray-900">
+          <CreditCard className="h-5 w-5 text-[#2DD4BF]" />
           Recent activity
         </h2>
 
         <Link
           to="/bookings"
-          className="flex items-center gap-1 text-sm font-semibold text-[#7D57F5] hover:text-[#6C47FF]"
+          className="flex items-center gap-1 text-sm font-semibold text-[#2DD4BF] hover:text-[#0891B2]"
         >
           Bookings
           <ExternalLink className="h-3.5 w-3.5" />
@@ -37,14 +36,14 @@ const RecentActivity = ({ transactions }) => {
           return (
             <div
               key={transaction._id}
-              className="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50 p-3.5"
+              className="flex items-center justify-between rounded-xl border border-gray-100 bg-gray-50 p-3.5"
             >
               <div className="flex items-center gap-3">
                 <div
                   className={
                     isNegative
-                      ? "flex h-8 w-8 items-center justify-center rounded-lg bg-rose-100 text-rose-600"
-                      : "flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-100 text-emerald-600"
+                      ? "flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 text-red-600"
+                      : "flex h-8 w-8 items-center justify-center rounded-lg bg-green-100 text-green-600"
                   }
                 >
                   {isNegative ? (
@@ -54,15 +53,15 @@ const RecentActivity = ({ transactions }) => {
                   )}
                 </div>
 
-                <span className="text-sm text-slate-700">
+                <span className="text-sm text-gray-700">
                   {transactionLabel(transaction)}
                 </span>
               </div>
               <strong
                 className={
                   isNegative
-                    ? "text-sm font-semibold text-rose-600"
-                    : "text-sm font-semibold text-emerald-600"
+                    ? "text-sm font-semibold text-red-600"
+                    : "text-sm font-semibold text-green-600"
                 }
               >
                 {formatMoney(amount, CURRENCY, VITE_LOCALE)}
@@ -71,7 +70,7 @@ const RecentActivity = ({ transactions }) => {
           );
         })}
         {transactions && transactions.length === 0 && (
-          <p className="text-sm text-slate-500">No wallet activity yet.</p>
+          <p className="text-sm text-gray-500">No wallet activity yet.</p>
         )}
       </div>
     </section>

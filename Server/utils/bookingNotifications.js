@@ -1,4 +1,3 @@
-// Server / utils / bookingNotifications.js
 import https from "https";
 import {
   brevoApiKey,
@@ -28,7 +27,7 @@ const buildCompanyEmailHtml = ({
   eyebrow = "Appointly",
   intro,
   rows,
-  accent = "#7D57F5",
+  accent = "#2DD4BF",
   notes,
   calendarUrl,
   footer,
@@ -41,8 +40,8 @@ const buildCompanyEmailHtml = ({
     .map(
       (row) => `
       <tr>
-        <td style="padding: 14px 0; color: #94a3b8; font-size: 13px; width: 36%; vertical-align: top;">${escapeHtml(row.label)}</td>
-        <td style="padding: 14px 0; color: #1e293b; font-size: 14px; font-weight: 700;">${escapeHtml(row.value)}</td>
+        <td style="padding: 14px 0; color: #9CA3AF; font-size: 13px; width: 36%; vertical-align: top;">${escapeHtml(row.label)}</td>
+        <td style="padding: 14px 0; color: #1F2937; font-size: 14px; font-weight: 700;">${escapeHtml(row.value)}</td>
       </tr>
     `,
     )
@@ -58,14 +57,14 @@ const buildCompanyEmailHtml = ({
         >
       </head>
 
-      <body style="margin:0; padding:0; background:#f1f0f5; font-family:'Inter', Arial, Helvetica, sans-serif; color:#1e293b;">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f1f0f5; padding:40px 16px;">
+      <body style="margin:0; padding:0; background:#F9FAFB; font-family:'Inter', Arial, Helvetica, sans-serif; color:#1F2937;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F9FAFB; padding:40px 16px;">
           <tr>
             <td align="center">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px; background:#ffffff; border-radius:24px; overflow:hidden; box-shadow: 0 4px 24px rgba(125,87,245,0.08);">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px; background:#ffffff; border-radius:24px; overflow:hidden; box-shadow: 0 4px 24px rgba(20,184,166,0.08);">
                 <!-- Header with brand gradient -->
                 <tr>
-                  <td style="background: linear-gradient(180deg, #CBB8FF 0%, #9B7BFF 50%, #7D57F5 100%); padding:36px 36px 32px; text-align:center;">
+                  <td style="background: linear-gradient(180deg, #99F6E4 0%, #5EEAD4 50%, #2DD4BF 100%); padding:36px 36px 32px; text-align:center;">
                     <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:800; color:rgba(255,255,255,0.8); margin-bottom:12px;">
                       ${escapeHtml(eyebrow)}
                     </div>
@@ -79,20 +78,20 @@ const buildCompanyEmailHtml = ({
                 <!-- Body -->
                 <tr>
                   <td style="padding:32px 36px 36px;">
-                    <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:#475569;">
+                    <p style="margin:0 0 24px; font-size:15px; line-height:1.7; color:#4B5563;">
                       ${escapeHtml(intro)}
                     </p>
 
                     <!-- Details table -->
-                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-top:2px solid #EBE4FF; border-bottom:2px solid #EBE4FF;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-top:2px solid #CCFBF1; border-bottom:2px solid #CCFBF1;">
                       ${detailRows}
                     </table>
 
                     ${
                       notes
                         ? `
-                      <div style="margin:24px 0 0; padding:16px 18px; background:#F4F0FF; border:1px solid #EBE4FF; border-radius:14px; color:#475569; font-size:14px; line-height:1.6;">
-                        <strong style="color:#7D57F5;">Notes:</strong> 
+                      <div style="margin:24px 0 0; padding:16px 18px; background:#F0FDFA; border:1px solid #CCFBF1; border-radius:14px; color:#4B5563; font-size:14px; line-height:1.6;">
+                        <strong style="color:#2DD4BF;">Notes:</strong> 
                         ${escapeHtml(notes)}
                       </div>`
                         : ""
@@ -102,14 +101,14 @@ const buildCompanyEmailHtml = ({
                       calendarUrl
                         ? `
                       <p style="margin:28px 0 0; text-align:center;">
-                        <a href="${escapeHtml(calendarUrl)}" style="display:inline-block; background:linear-gradient(180deg, #9B7BFF 0%, #7D57F5 100%); color:#ffffff; text-decoration:none; padding:14px 28px; border-radius:14px; font-size:14px; font-weight:700; letter-spacing:0.3px;">
+                        <a href="${escapeHtml(calendarUrl)}" style="display:inline-block; background:linear-gradient(180deg, #5EEAD4 0%, #2DD4BF 100%); color:#ffffff; text-decoration:none; padding:14px 28px; border-radius:14px; font-size:14px; font-weight:700; letter-spacing:0.3px;">
                           Add to Google Calendar
                         </a>
                       </p>`
                         : ""
                     }
 
-                    <p style="margin:28px 0 0; color:#94a3b8; font-size:13px; line-height:1.6;">
+                    <p style="margin:28px 0 0; color:#9CA3AF; font-size:13px; line-height:1.6;">
                       ${escapeHtml(footer)}
                     </p>
                   </td>
@@ -118,8 +117,8 @@ const buildCompanyEmailHtml = ({
                 <!-- Footer bar -->
                 <tr>
                   <td style="padding:0 36px 28px; text-align:center;">
-                    <div style="border-top:1px solid #f1f5f9; padding-top:20px;">
-                      <span style="font-size:12px; font-weight:700; color:#CBB8FF; letter-spacing:1.5px; text-transform:uppercase;">
+                    <div style="border-top:1px solid #F3F4F6; padding-top:20px;">
+                      <span style="font-size:12px; font-weight:700; color:#99F6E4; letter-spacing:1.5px; text-transform:uppercase;">
                         Powered by Appointly
                       </span>
                     </div>
@@ -431,7 +430,7 @@ const buildBookingMessage = ({
     eyebrow: businessName,
     intro,
     rows,
-    accent: business.brandAccent || "#7D57F5",
+    accent: business.brandAccent || "#2DD4BF",
     notes: booking.notes,
     calendarUrl:
       recipientType === "customer" ? booking.customerCalendarUrl : "",

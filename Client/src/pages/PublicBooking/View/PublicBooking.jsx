@@ -1,4 +1,3 @@
-// Client / src / pages / PublicBooking / View / PublicBooking.jsx
 import { useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { today } from "../../../utils/date";
@@ -38,7 +37,7 @@ const PublicBooking = () => {
   );
 
   const brandTheme =
-    brandThemeStyles[business?.brandTheme] || brandThemeStyles.emerald;
+    brandThemeStyles[business?.brandTheme] || brandThemeStyles.green;
 
   const accent = business?.brandAccent || brandTheme.accent;
   const brandStyleVars = {
@@ -46,7 +45,7 @@ const PublicBooking = () => {
     "--brand-panel": brandTheme.panel,
   };
   const bannerImage =
-    themeBannerImages[business?.brandTheme] || themeBannerImages.emerald;
+    themeBannerImages[business?.brandTheme] || themeBannerImages.green;
 
   useEffect(() => {
     if (otpCooldown <= 0) return;
@@ -72,7 +71,7 @@ const PublicBooking = () => {
 
   return (
     <div
-      className="min-h-screen bg-[#f8f9fc] text-slate-900 py-6 md:py-10 px-4 md:px-8"
+      className="min-h-screen bg-[#F4F4F5] text-gray-900 py-6 md:py-10 px-4 md:px-8"
       style={brandStyleVars}
     >
       <main className="mx-auto grid max-w-275 gap-6 lg:gap-10 lg:grid-cols-[0.8fr_1.2fr]">

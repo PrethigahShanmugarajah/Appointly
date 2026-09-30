@@ -1,17 +1,12 @@
-// Server / controllers / availabilityControllers.js
 import Availability from "../models/Availability.js";
 import { isValidTimeRange } from "../utils/time.js";
 
 /* -------- List Availability -------- */
 export const listAvailability = async (req, res) => {
   try {
-    // const availability = (
-    //   await Availability.find({ userId: req.user.id })
-    // ).toSorted({ dayOfWeek: 1 });
-
-    const availability = (await Availability.find({ userId: req.user.id }))
-      // ).sort({ dayOfWeek: 1 });
-      .sort((a, b) => a.dayOfWeek - b.dayOfWeek);
+    const availability = (
+      await Availability.find({ userId: req.user.id })
+    ).sort((a, b) => a.dayOfWeek - b.dayOfWeek);
 
     return res.status(200).json({
       success: true,
@@ -41,13 +36,6 @@ export const listAvailability = async (req, res) => {
 export const saveAvailability = async (req, res) => {
   try {
     const { dayOfWeek, slots } = req.body;
-
-    // if (dayOfWeek === undefined || dayOfWeek < 0 || dayOfWeek > 6) {
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Valid day of week is required.",
-    //   });
-    // }
 
     if (dayOfWeek === undefined) {
       return res.status(400).json({

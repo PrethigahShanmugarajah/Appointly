@@ -1,5 +1,3 @@
-// Client / src / utils / dashboard.js
-
 /* -------- Format Local Date Key -------- */
 export const formatLocalDateKey = (date) => {
   const year = date.getFullYear();
@@ -301,6 +299,7 @@ export const getBookingTrend = (bookings, graphFilter) => {
   return [];
 };
 
+/* --------  -------- */
 export const getGreeting = () => {
   const hour = new Date().getHours();
 

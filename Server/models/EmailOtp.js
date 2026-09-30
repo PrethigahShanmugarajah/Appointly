@@ -1,4 +1,3 @@
-// Server / models / EmailOtp.js
 import mongoose from "mongoose";
 
 const emailOtpSchema = new mongoose.Schema(

@@ -1,4 +1,3 @@
-// Client / src / pages / PublicBooking / Components / BusinessSidebar.jsx
 import ServiceCard from "./ServiceCard";
 
 const BusinessSidebar = ({

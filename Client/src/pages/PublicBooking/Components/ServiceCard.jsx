@@ -1,4 +1,3 @@
-// Client / src / pages / PublicBooking / Components / ServiceCard.jsx
 import { Check } from "lucide-react";
 import { ICON_MAP } from "../../../utils/iconMap";
 import { useAppContext } from "../../../context/appContext";
@@ -32,7 +31,7 @@ const ServiceCard = ({ service, isActive, setForm, accent }) => {
         <span
           className={
             isActive
-              ? "block text-[16px] font-extrabold text-slate-900"
+              ? "block text-[16px] font-extrabold text-gray-900"
               : "block text-[16px] font-extrabold text-white"
           }
         >
@@ -42,7 +41,7 @@ const ServiceCard = ({ service, isActive, setForm, accent }) => {
         <p
           className={
             isActive
-              ? "mt-1 text-[13px] font-semibold text-slate-500"
+              ? "mt-1 text-[13px] font-semibold text-gray-500"
               : "mt-1 text-[13px] font-semibold text-white/60"
           }
         >
@@ -54,7 +53,7 @@ const ServiceCard = ({ service, isActive, setForm, accent }) => {
           <p
             className={
               isActive
-                ? "mt-1.5 text-[12px] leading-relaxed line-clamp-2 text-slate-500"
+                ? "mt-1.5 text-[12px] leading-relaxed line-clamp-2 text-gray-500"
                 : "mt-1.5 text-[12px] leading-relaxed line-clamp-2 text-white/50 font-medium"
             }
           >

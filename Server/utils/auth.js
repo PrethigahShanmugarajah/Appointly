@@ -1,4 +1,3 @@
-// Server / utils / auth.js
 import jwt from "jsonwebtoken";
 import {
   jwtSecret,

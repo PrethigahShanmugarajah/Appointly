@@ -1,4 +1,3 @@
-// Server / utils / time.js
 
 /* -------- Convert Time to Minutes -------- */
 export const timeToMinutes = (time) => {

@@ -1,18 +1,17 @@
-// Client / src / App.jsx
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router-dom";
-import AdminLoginPage from "./pages/Admin/AdminLoginPage/View/AdminLoginPage";
-import AdminDashboardPage from "./pages/Admin/AdminDashboardPage/View/AdminDashboardPage";
+import AdminLogin from "./pages/Admin/AdminLogin/View/AdminLogin";
+import AdminDashboard from "./pages/Admin/AdminDashboard/View/AdminDashboard";
 import AdminProtectedRoute from "./components/ProtectedRoute/AdminProtectedRoute";
 import { PublicOnlyRoute } from "./components/ProtectedRoute/PublicOnlyRoute";
-import AuthPage from "./pages/AuthPage/View/AuthPage";
+import Auth from "./pages/Auth/View/Auth";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import DashboardPage from "./pages/DashboardPage/View/DashboardPage";
-import ProfilePage from "./pages/ProfilePage/View/ProfilePage";
-import BookingsPage from "./pages/BookingsPage/View/BookingsPage";
-import BookingSuccessPage from "./pages/BookingSuccessPage/View/BookingSuccessPage";
-import BookingCancelPage from "./pages/BookingCancelPage/View/BookingCancelPage";
+import Dashboard from "./pages/Dashboard/View/Dashboard";
+import Profile from "./pages/Profile/View/Profile";
+import Bookings from "./pages/Bookings/View/Bookings";
+import BookingSuccess from "./pages/BookingSuccess/View/BookingSuccess";
+import BookingCancel from "./pages/BookingCancel/View/BookingCancel";
 import Availability from "./pages/Availability/View/Availability";
 import Service from "./pages/Service/View/Service";
 import Payment from "./pages/Payment/View/Payment";
@@ -26,13 +25,13 @@ const App = () => {
       <ToastContainer autoClose={3000} newestOnTop={true} />
 
       <Routes>
-        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route
           path="/admin/dashboard"
           element={
             <AdminProtectedRoute>
-              <AdminDashboardPage />
+              <AdminDashboard />
             </AdminProtectedRoute>
           }
         />
@@ -41,7 +40,7 @@ const App = () => {
           path="/login"
           element={
             <PublicOnlyRoute>
-              <AuthPage />
+              <Auth />
             </PublicOnlyRoute>
           }
         />
@@ -50,7 +49,7 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <DashboardPage />
+              <Dashboard />
             </ProtectedRoute>
           }
         />
@@ -59,7 +58,7 @@ const App = () => {
           path="/profile"
           element={
             <ProtectedRoute>
-              <ProfilePage />
+              <Profile />
             </ProtectedRoute>
           }
         />
@@ -68,14 +67,14 @@ const App = () => {
           path="/bookings"
           element={
             <ProtectedRoute>
-              <BookingsPage />
+              <Bookings />
             </ProtectedRoute>
           }
         />
 
-        <Route path="/bookings/success" element={<BookingSuccessPage />} />
+        <Route path="/bookings/success" element={<BookingSuccess />} />
 
-        <Route path="/bookings/cancelled" element={<BookingCancelPage />} />
+        <Route path="/bookings/cancelled" element={<BookingCancel />} />
 
         <Route
           path="/availability"

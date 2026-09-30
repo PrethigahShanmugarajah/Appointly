@@ -1,4 +1,3 @@
-// Client / src / pages / PrivacyPolicy / Components / PrivacyPolicySections.jsx
 import PrivacyPolicyGoogleApi from "./PrivacyPolicyGoogleApi";
 import PrivacyPolicyContact from "./PrivacyPolicyContact";
 
@@ -6,11 +5,11 @@ const PrivacyPolicySections = () => {
   return (
     <>
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           1. Introduction
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly respects your privacy and is committed to handling personal
           information responsibly. This Privacy Policy explains how we collect,
           use, store, protect, and disclose information when you use Appointly,
@@ -20,11 +19,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           2. Scope of This Privacy Policy
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           This Privacy Policy applies to information collected through Appointly
           and its related services. It explains how personal information is
           handled when you create an account, manage services, make
@@ -35,18 +34,18 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           3. Information We Collect
         </h2>
-        
-        <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
+
+        <p className="text-[15px] text-gray-600 leading-relaxed mb-3">
           Depending on how you use Appointly, we may collect the following
           categories of information:
         </p>
 
-        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
+        <ul className="list-disc list-inside space-y-2 text-[15px] text-gray-600 leading-relaxed ml-2">
           <li>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-gray-700">
               Account Information:
             </span>{" "}
             Your name, email address, password-related information, business
@@ -55,7 +54,7 @@ const PrivacyPolicySections = () => {
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-gray-700">
               Appointment Information:
             </span>{" "}
             Booking dates, appointment times, selected services, customer
@@ -63,7 +62,7 @@ const PrivacyPolicySections = () => {
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-gray-700">
               Business Information:
             </span>{" "}
             Information about services, descriptions, availability, pricing,
@@ -71,7 +70,7 @@ const PrivacyPolicySections = () => {
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-gray-700">
               Communication Information:
             </span>{" "}
             Email addresses and information required to send OTP codes,
@@ -80,7 +79,7 @@ const PrivacyPolicySections = () => {
           </li>
 
           <li>
-            <span className="font-semibold text-slate-700">
+            <span className="font-semibold text-gray-700">
               Calendar Information:
             </span>{" "}
             Relevant Google Calendar information when you choose to connect your
@@ -90,15 +89,15 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           4. How We Collect Information
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
+        <p className="text-[15px] text-gray-600 leading-relaxed mb-3">
           We may obtain information through several sources, including:
         </p>
 
-        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
+        <ul className="list-disc list-inside space-y-2 text-[15px] text-gray-600 leading-relaxed ml-2">
           <li>
             Information you provide when registering or updating your account.
           </li>
@@ -125,11 +124,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           5. How We Use Personal Information
         </h2>
 
-        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
+        <ul className="list-disc list-inside space-y-2 text-[15px] text-gray-600 leading-relaxed ml-2">
           <li>To create and manage user accounts.</li>
 
           <li>
@@ -165,11 +164,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           6. Appointment and Booking Information
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           When you create or manage an appointment through Appointly, we may
           process information necessary to complete the booking. This can
           include the Client's name, email address, selected service,
@@ -180,11 +179,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           7. Payment Information
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Payments made through Appointly may be processed by Stripe or another
           applicable payment provider. Payment card information is handled by
           the relevant payment provider according to its security and privacy
@@ -194,11 +193,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           8. Google Services and Calendar Data
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           If you choose to connect a Google account or Google Calendar,
           Appointly may access information required to provide calendar
           synchronization and related features. We use the requested Google data
@@ -210,11 +209,11 @@ const PrivacyPolicySections = () => {
       <PrivacyPolicyGoogleApi />
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           10. Email and Communication Services
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly may use email and communication services to send account
           verification codes, appointment confirmations, cancellation
           notifications, and other messages related to the Service. We use
@@ -225,11 +224,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           11. How We Share Information
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           We may share personal information when necessary to operate Appointly,
           provide requested functionality, process transactions, support
           integrations, comply with legal obligations, or protect the rights and
@@ -239,11 +238,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           12. Data Security
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           We apply reasonable technical and organizational measures designed to
           protect personal information against unauthorized access, alteration,
           disclosure, or destruction. These measures may include encrypted
@@ -254,11 +253,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           13. Data Retention
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           We retain personal information for as long as reasonably necessary to
           provide Appointly, maintain account and appointment records, meet
           operational requirements, resolve disputes, enforce agreements, or
@@ -269,16 +268,16 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           14. Your Privacy Rights
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed mb-3">
+        <p className="text-[15px] text-gray-600 leading-relaxed mb-3">
           Depending on applicable law, you may have rights relating to your
           personal information, which may include:
         </p>
 
-        <ul className="list-disc list-inside space-y-2 text-[15px] text-slate-600 leading-relaxed ml-2">
+        <ul className="list-disc list-inside space-y-2 text-[15px] text-gray-600 leading-relaxed ml-2">
           <li>Requesting access to personal information we hold about you.</li>
 
           <li>
@@ -300,18 +299,18 @@ const PrivacyPolicySections = () => {
           </li>
         </ul>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed mt-3">
+        <p className="text-[15px] text-gray-600 leading-relaxed mt-3">
           Requests relating to your personal information can be submitted using
           the contact details provided in this Privacy Policy.
         </p>
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           15. Cookies and Local Storage
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly may use necessary cookies and browser local storage to
           support authentication, maintain sessions, remember required
           application settings, and provide core functionality. These
@@ -321,11 +320,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           16. Third-Party Services and Links
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly may contain integrations or links to third-party services.
           These services may collect and process information according to their
           own terms and privacy policies. We are not responsible for the privacy
@@ -336,11 +335,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           17. Children's Privacy
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly is not intended to be used by children who are not legally
           permitted to use online services under the laws applicable to them. We
           do not knowingly seek to collect personal information from children
@@ -351,11 +350,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           18. International Data Transfers
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           Appointly may use infrastructure, service providers, or integrations
           located in countries other than the country where you live. As a
           result, personal information may be processed or stored outside your
@@ -365,11 +364,11 @@ const PrivacyPolicySections = () => {
       </section>
 
       <section>
-        <h2 className="text-xl font-extrabold text-slate-900 mb-3">
+        <h2 className="text-xl font-extrabold text-gray-900 mb-3">
           19. Changes to This Privacy Policy
         </h2>
 
-        <p className="text-[15px] text-slate-600 leading-relaxed">
+        <p className="text-[15px] text-gray-600 leading-relaxed">
           We may update this Privacy Policy from time to time to reflect changes
           in Appointly, our information practices, third-party integrations, or
           applicable requirements. When changes are made, the updated version

@@ -1,4 +1,3 @@
-// Server / utils / calendarLink.js
 import { googleCalendarUrl } from "../config/env.js";
 
 /* -------- Convert Date and Time to Google Calendar Format -------- */

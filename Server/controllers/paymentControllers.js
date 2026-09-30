@@ -1,4 +1,3 @@
-// Server / controllers / paymentControllers.js
 import User from "../models/User.js";
 import WalletTransaction from "../models/WalletTransaction.js";
 import Withdrawal from "../models/Withdrawal.js";
@@ -45,13 +44,6 @@ export const updatePayoutDetails = async (req, res) => {
   try {
     const { accountHolderName, bankName, accountNumber, ifsc, upiId } =
       req.body;
-
-    // if (!accountHolderName || (!accountNumber && !upiId)) {
-    //   return res.status(400).json({
-    //     message:
-    //       "Account holder name and either a bank account number or UPI ID are required.",
-    //   });
-    // }
 
     if (!accountHolderName) {
       return res.status(400).json({

@@ -1,11 +1,9 @@
-// Client / src / utils / bookings.js
-
 /* -------- Get banner variant -------- */
 export const getBannerVariant = (msg) =>
   msg.toLowerCase().includes("triggered") ||
   msg.toLowerCase().includes("success")
-    ? "bg-emerald-50 text-emerald-700 border-emerald-100"
-    : "bg-[#F4F0FF] text-[#7D57F5] border-[#EBE4FF]";
+    ? "bg-green-50 text-green-700 border-green-100"
+    : "bg-[#F0FDFA] text-[#2DD4BF] border-[#CCFBF1]";
 
 /* -------- Booking statuses -------- */
 export const statuses = ["", "Confirmed", "Rescheduled", "Cancelled"];

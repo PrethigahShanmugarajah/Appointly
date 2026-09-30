@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// Client / src / components / FormField / TextAreaField.jsx
 import { useEffect, useMemo, useState } from "react";
 
 const SIZE_CONFIG = {
@@ -98,7 +97,7 @@ export const TextAreaField = ({
   const renderLabel = label ? (
     <label htmlFor={name} className={`block ${labelClassName}`}>
       {label}
-      {rest.required && <span className="text-rose-500 ml-1">*</span>}
+      {rest.required && <span className="text-red-500 ml-1">*</span>}
     </label>
   ) : null;
 
@@ -109,7 +108,7 @@ export const TextAreaField = ({
 
       <div className="relative w-full">
         {iconLeft && (
-          <span className="absolute left-4 top-4 text-gray-400">
+          <span className="absolute left-4 top-4 text-slate-400">
             {iconLeft}
           </span>
         )}
@@ -119,7 +118,7 @@ export const TextAreaField = ({
           name={name}
           rows={rows}
           placeholder={placeholder}
-          className={`border border-purple-100 bg-white shadow-sm w-full focus:outline-none focus:border-purple-400 transition-all resize-none ${textareaClassName}`}
+          className={`border border-cyan-100 bg-white shadow-sm w-full focus:outline-none focus:border-cyan-400 transition-all resize-none ${textareaClassName}`}
           style={{
             fontSize: `${s.fontSize}px`,
             paddingLeft: iconLeft ? "44px" : s.px,
@@ -135,13 +134,13 @@ export const TextAreaField = ({
         />
 
         {iconRight && (
-          <span className="absolute right-4 top-4 text-gray-400">
+          <span className="absolute right-4 top-4 text-slate-400">
             {iconRight}
           </span>
         )}
 
         {!!error && (
-          <p className={`text-rose-500 text-sm mt-1 ${errorClassName}`}>
+          <p className={`text-red-500 text-sm mt-1 ${errorClassName}`}>
             {error}
           </p>
         )}

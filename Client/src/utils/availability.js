@@ -1,5 +1,3 @@
-// Client / src / utils / availability.js
-
 /* -------- Default availability slot -------- */
 export const defaultSlot = { startTime: "09:00", endTime: "17:00" };
 

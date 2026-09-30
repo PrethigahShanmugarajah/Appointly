@@ -1,4 +1,3 @@
-// Server / routes / publicRoutes.js
 import express from "express";
 import {
   cancelPublicBookingPayment,

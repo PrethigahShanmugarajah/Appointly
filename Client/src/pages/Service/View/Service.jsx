@@ -1,4 +1,3 @@
-// Client / src / pages / Service / View / Service.jsx
 import { useEffect, useState } from "react";
 import { emptyForm } from "../../../utils/service";
 import {
@@ -146,6 +145,7 @@ const Service = () => {
           }
           confirmText="Delete Service"
           closeText="Cancel"
+          confirmColor="red"
         />
       )}
     </AppLayout>

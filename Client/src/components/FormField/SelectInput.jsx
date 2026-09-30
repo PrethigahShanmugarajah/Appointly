@@ -1,4 +1,3 @@
-// Client / src / components / FormField / SelectInput.jsx
 import { useEffect, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import { X } from "lucide-react";
@@ -140,7 +139,7 @@ const BeforeClearSeparator = ({ selectProps }) => {
       style={{
         width: "1px",
         height: s.separatorHeight,
-        backgroundColor: "#E9D5FF",
+        backgroundColor: "#A5F3FC",
         margin: s.separatorMargin,
         flexShrink: 0,
       }}
@@ -178,9 +177,9 @@ const ClearIndicator = (props) => {
         alignItems: "center",
         padding: s.indicatorPadding,
         cursor: isMutedDisabled ? "not-allowed" : "pointer",
-        color: isMutedDisabled ? "#9CA3AF" : "#111827",
+        color: isMutedDisabled ? "#94A3B8" : "#0F172A",
       }}
-      className={!isMutedDisabled ? "hover:text-purple-600" : ""}
+      className={!isMutedDisabled ? "hover:text-cyan-600" : ""}
       aria-label="Clear selected value"
     >
       <X size={s.icon} />
@@ -278,7 +277,7 @@ export const SelectInput = ({
           className={`block text-sm font-medium mb-3 text-black ${labelClassName}`}
         >
           {label}{" "}
-          {rest.required && <span className="text-rose-500 ml-1">*</span>}
+          {rest.required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
 
@@ -304,7 +303,7 @@ export const SelectInput = ({
           Control: ({ children, ...props }) => (
             <components.Control {...props}>
               {iconLeft && (
-                <span className="ml-4 flex shrink-0 items-center text-gray-400">
+                <span className="ml-4 flex shrink-0 items-center text-slate-400">
                   {iconLeft}
                 </span>
               )}
@@ -312,7 +311,7 @@ export const SelectInput = ({
               {children}
 
               {iconRight && (
-                <span className="mr-4 flex shrink-0 items-center text-gray-400">
+                <span className="mr-4 flex shrink-0 items-center text-slate-400">
                   {iconRight}
                 </span>
               )}
@@ -327,23 +326,23 @@ export const SelectInput = ({
             return {
               ...base,
               cursor: state.isDisabled ? "not-allowed" : "pointer",
-              backgroundColor: isMutedDisabledNow ? "#FAF5FF" : "white",
+              backgroundColor: isMutedDisabledNow ? "#ECFEFF" : "white",
               borderRadius: "9999px",
               minHeight: s.height,
               height: s.height,
               paddingLeft: s.paddingLeft,
               borderWidth: "1px",
               borderColor: isMutedDisabledNow
-                ? "#E9D5FF"
+                ? "#A5F3FC"
                 : state.isFocused
-                  ? "#A855F7"
-                  : "#E9D5FF",
+                  ? "#06B6D4"
+                  : "#A5F3FC",
               boxShadow:
                 state.isFocused && !state.isDisabled
-                  ? "0 0 0 2px #E9D5FF"
+                  ? "0 0 0 2px #A5F3FC"
                   : "none",
               "&:hover": {
-                borderColor: isMutedDisabledNow ? "#E9D5FF" : "#A855F7",
+                borderColor: isMutedDisabledNow ? "#A5F3FC" : "#06B6D4",
               },
             };
           },
@@ -355,7 +354,7 @@ export const SelectInput = ({
             return {
               ...base,
               fontSize: `${s.fontSize}px`,
-              color: isMutedDisabledNow ? "#9CA3AF" : "#000000",
+              color: isMutedDisabledNow ? "#94A3B8" : "#000000",
             };
           },
 
@@ -366,7 +365,7 @@ export const SelectInput = ({
             return {
               ...base,
               fontSize: `${s.fontSize}px`,
-              color: isMutedDisabledNow ? "#9CA3AF" : base.color,
+              color: isMutedDisabledNow ? "#94A3B8" : base.color,
             };
           },
 
@@ -415,13 +414,13 @@ export const SelectInput = ({
             padding: s.optionPadding,
             fontSize: `${s.fontSize}px`,
             backgroundColor: state.isSelected
-              ? "#7E22CE"
+              ? "#0E7490"
               : state.isFocused
-                ? "#F3E8FF"
+                ? "#CFFAFE"
                 : "white",
             color: state.isSelected ? "white" : "#000000",
             ":active": {
-              backgroundColor: "#F3E8FF",
+              backgroundColor: "#CFFAFE",
             },
           }),
         }}
@@ -429,9 +428,7 @@ export const SelectInput = ({
       />
 
       {!!error && (
-        <p className={`text-rose-500 text-sm mt-1 ${errorClassName}`}>
-          {error}
-        </p>
+        <p className={`text-red-500 text-sm mt-1 ${errorClassName}`}>{error}</p>
       )}
     </div>
   );

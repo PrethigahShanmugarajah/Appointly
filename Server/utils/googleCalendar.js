@@ -1,4 +1,3 @@
-// Server / utils / googleCalendar.js
 import { google } from "googleapis";
 import {
   googleCalendarScope,

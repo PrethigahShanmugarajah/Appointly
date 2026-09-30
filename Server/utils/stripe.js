@@ -1,4 +1,3 @@
-// Server / utils / stripe.js
 import Stripe from "stripe";
 import { stripeSecretKey } from "../config/env.js";
 

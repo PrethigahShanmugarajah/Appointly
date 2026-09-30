@@ -1,4 +1,3 @@
-// Server / models / Service.js
 import mongoose from "mongoose";
 
 const serviceSchema = new mongoose.Schema(

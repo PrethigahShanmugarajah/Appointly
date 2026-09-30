@@ -1,4 +1,3 @@
-// Server / utils / slotGenerator.js
 import Availability from "../models/Availability.js";
 import Booking from "../models/Booking.js";
 import { timeOverlap } from "./overlap.js";

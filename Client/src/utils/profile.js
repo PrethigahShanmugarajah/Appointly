@@ -1,5 +1,3 @@
-// Client / src / utils / profile.js
-
 /* -------- Get Calendar Message -------- */
 export const getCalendarMessage = (value) => {
   if (value === "connected") return "Google Calendar connected successfully.";
@@ -12,8 +10,8 @@ export const getMessageBannerClass = (msg) => {
   if (!msg) return "";
 
   return msg.toLowerCase().includes("success") || msg.includes("updated")
-    ? "bg-emerald-50 text-emerald-700 border-emerald-100"
-    : "bg-rose-50 text-rose-700 border-rose-100";
+    ? "bg-green-50 text-green-700 border-green-100"
+    : "bg-red-50 text-red-700 border-red-100";
 };
 
 /* -------- Get Public Booking Link -------- */

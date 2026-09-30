@@ -1,4 +1,3 @@
-/* Client / src / index.css */
 @import url("https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 @import "tailwindcss";
@@ -40,7 +39,7 @@ button {
 
 body {
   margin: 0;
-  background: #f8f9fc;
+  background: #f4f4f5;
   font-family: "Inria Serif", Georgia, "Times New Roman", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,11 +60,11 @@ textarea {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c7d2fe;
+  background: #bfdbfe;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+  background: #93c5fd;
 }
 
 /* -------- Smooth transitions -------- */

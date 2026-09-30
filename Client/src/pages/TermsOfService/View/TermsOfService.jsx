@@ -1,4 +1,3 @@
-// Client / src / pages / TermsOfService / View / TermsOfService.jsx
 import { useAppContext } from "../../../context/appContext";
 import LegalHeader from "../../../components/LegalHeader";
 import { FileText } from "lucide-react";
@@ -9,7 +8,7 @@ const TermsOfService = () => {
   const { TERMS_OF_SERVICE_LAST_UPDATED } = useAppContext();
 
   return (
-    <div className="min-h-screen bg-[#f8f9fc] text-slate-900">
+    <div className="min-h-screen bg-[#F4F4F5] text-gray-900">
       <LegalHeader
         title="Terms of Service"
         icon={FileText}
@@ -18,7 +17,7 @@ const TermsOfService = () => {
 
       {/* -------- Content -------- */}
       <main className="mx-auto max-w-4xl px-6 py-12 md:py-16">
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm space-y-8">
+        <div className="bg-white rounded-3xl border border-gray-200 p-8 md:p-12 shadow-sm space-y-8">
           <TermsOfServiceSections />
 
           <TermsOfServiceContact />
